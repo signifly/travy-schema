@@ -4,6 +4,7 @@ namespace Signifly\Travy\Schema\Fields;
 
 use Illuminate\Support\Str;
 use JsonSerializable;
+use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasMetaData;
 use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
@@ -12,11 +13,12 @@ use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
 use Signifly\Travy\Schema\Width;
 
-abstract class Field extends FieldElement implements JsonSerializable
+abstract class Field implements JsonSerializable
 {
     use HasProps;
     use HasScopes;
     use HasMetaData;
+    use Instantiable;
 
     /**
      * The field's component.
@@ -56,16 +58,6 @@ abstract class Field extends FieldElement implements JsonSerializable
     {
         $this->name = $name;
         $this->attribute = $attribute ?? str_replace(' ', '_', Str::lower($name));
-    }
-
-    /**
-     * Create a new element.
-     *
-     * @return static
-     */
-    public static function make(...$arguments)
-    {
-        return new static(...$arguments);
     }
 
     /**
@@ -214,7 +206,7 @@ abstract class Field extends FieldElement implements JsonSerializable
         }
 
         return array_merge([
-            'name' => $this->localize($this->name),
+            'name' => $this->name,
             'attribute' => (new AttributeResolver())->resolve($this->attribute, $this->name),
             'fieldType' => $this->fieldType(),
         ], $this->meta());

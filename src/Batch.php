@@ -2,13 +2,15 @@
 
 namespace Signifly\Travy\Schema;
 
-use JsonSerializable;
 use Illuminate\Support\Arr;
+use JsonSerializable;
+use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasActions;
 
 class Batch implements JsonSerializable
 {
     use HasActions;
+    use Instantiable;
 
     /**
      * The attribute / column name for the label.
@@ -41,16 +43,6 @@ class Batch implements JsonSerializable
     {
         $this->attribute = $attribute;
         $this->link = $link;
-    }
-
-    /**
-     * Create a new element.
-     *
-     * @return static
-     */
-    public static function make(...$arguments)
-    {
-        return new static(...$arguments);
     }
 
     /**

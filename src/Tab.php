@@ -4,6 +4,7 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
+use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 use Signifly\Travy\Schema\Contracts\Table;
 use Signifly\Travy\Schema\Support\FieldCollection;
@@ -11,6 +12,7 @@ use Signifly\Travy\Schema\Support\FieldCollection;
 class Tab implements Arrayable, JsonSerializable
 {
     use HasEndpoint;
+    use Instantiable;
 
     const TYPE_FIELDS = 'fields';
     const TYPE_TABLE = 'table';
@@ -58,17 +60,6 @@ class Tab implements Arrayable, JsonSerializable
         } elseif ($definition instanceof Table) {
             $this->table($definition);
         }
-    }
-
-    /**
-     * Initialize Tab statically.
-     *
-     * @param  mixed $arguments
-     * @return self
-     */
-    public static function make(...$arguments): self
-    {
-        return new self(...$arguments);
     }
 
     /**

@@ -64,7 +64,7 @@ trait AppliesConcerns
 
         $schema->set('modifiers', [
             'data' => $modifiers->toData(),
-            'fields' => $modifiers->prepared(),
+            'fields' => $modifiers->jsonSerialize(),
         ]);
     }
 

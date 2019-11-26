@@ -3,10 +3,13 @@
 namespace Signifly\Travy\Schema;
 
 use JsonSerializable;
+use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Fields\Field;
 
 class Column implements JsonSerializable
 {
+    use Instantiable;
+
     /**
      * The field.
      *
@@ -30,16 +33,6 @@ class Column implements JsonSerializable
     public function __construct(Field $field)
     {
         $this->field = $field;
-    }
-
-    /**
-     * Create a new column.
-     *
-     * @return static
-     */
-    public static function make(...$arguments)
-    {
-        return new static(...$arguments);
     }
 
     /**

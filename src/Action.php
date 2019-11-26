@@ -2,11 +2,14 @@
 
 namespace Signifly\Travy\Schema;
 
-use JsonSerializable;
 use Illuminate\Contracts\Support\Arrayable;
+use JsonSerializable;
+use Signifly\Travy\Concerns\Instantiable;
 
 abstract class Action implements Arrayable, JsonSerializable
 {
+    use Instantiable;
+
     /**
      * The button name of the action.
      *
@@ -50,17 +53,6 @@ abstract class Action implements Arrayable, JsonSerializable
         $this->name = $name;
         $this->status = $status;
         $this->icon = $icon;
-    }
-
-    /**
-     * Initialize the action statically.
-     *
-     * @param  mixed $arguments
-     * @return self
-     */
-    public static function make(...$arguments): self
-    {
-        return new static(...$arguments);
     }
 
     /**

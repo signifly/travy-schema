@@ -44,7 +44,7 @@ class Modal extends Action
             'props' => [
                 'name' => $this->name,
                 'endpoint' => $this->endpoint->toArray(),
-                'fields' => $fields->prepared(),
+                'fields' => $fields->jsonSerialize(),
                 'payload' => array_merge($fields->toData(), $this->payload),
             ],
         ];
