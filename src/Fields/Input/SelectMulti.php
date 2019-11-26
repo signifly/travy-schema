@@ -29,7 +29,6 @@ class SelectMulti extends Select
     {
         $this->withProps([
             'values' => $this->attribute,
-            'options' => $this->options(),
         ]);
     }
 }

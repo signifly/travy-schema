@@ -19,21 +19,4 @@ class SelectMultiSearch extends SelectSearch
      * @var mixed
      */
     public $defaultValue = [];
-
-    /**
-     * The options to apply to the field type.
-     *
-     * @return void
-     */
-    public function applyOptions(): void
-    {
-        if ($this->hasEndpoint()) {
-            $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
-        }
-
-        $this->withProps([
-            'values' => $this->attribute,
-            'options' => $this->options(),
-        ]);
-    }
 }

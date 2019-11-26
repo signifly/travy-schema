@@ -2,23 +2,23 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields\Input;
 
-use Signifly\Travy\Schema\Fields\Input\Toggle;
+use Signifly\Travy\Schema\Fields\Input\Textarea;
 use Signifly\Travy\Schema\Tests\TestCase;
 
-class ToggleTest extends TestCase
+class TextareaTest extends TestCase
 {
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = Toggle::make('Accept Terms');
+        $field = Textarea::make('Content');
 
         $expected = [
-            'name' => 'Accept Terms',
-            'attribute' => 'accept_terms',
+            'name' => 'Content',
+            'attribute' => 'content',
             'fieldType' => [
-                'id' => 'input-switch',
+                'id' => 'input-textarea',
                 'props' => [
-                    'value' => 'accept_terms',
+                    'text' => 'content',
                 ],
             ],
         ];

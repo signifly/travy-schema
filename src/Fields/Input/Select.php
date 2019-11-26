@@ -2,10 +2,13 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
+use Signifly\Travy\Schema\Concerns\Clearable;
 use Signifly\Travy\Schema\Fields\Field;
 
 class Select extends Field
 {
+    use Clearable;
+
     /**
      * The field's component.
      *
@@ -14,32 +17,15 @@ class Select extends Field
     public $component = 'input-select';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Set the items.
      *
      * @param  array  $items
+     * @param  bool $mapped
      * @return self
      */
-    public function items(array $items): self
+    public function items(array $items, bool $mapped = false): self
     {
-        return $this->withProps(['items' => $items]);
-    }
-
-    /**
-     * Set the clearable prop.
-     *
-     * @param  bool $value
-     * @return self
-     */
-    public function clearable($value = true): self
-    {
-        return $this->withProps(['clearable' => $value]);
+        return $this->setProp('entities', $items, $mapped);
     }
 
     /**

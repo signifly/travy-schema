@@ -2,12 +2,14 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
+use Signifly\Travy\Schema\Concerns\Clearable;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 use Signifly\Travy\Schema\Concerns\HasOptions;
 use Signifly\Travy\Schema\Fields\Field;
 
 class SelectSearch extends Field
 {
+    use Clearable;
     use HasEndpoint;
     use HasOptions;
 
@@ -19,32 +21,15 @@ class SelectSearch extends Field
     public $component = 'input-select-search';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Set the addable prop.
      *
      * @param  bool $value
+     * @param  bool $mapped
      * @return self
      */
-    public function addable($value = true): self
+    public function addable($value = true, bool $mapped = false): self
     {
-        return $this->withProps(['addable' => $value]);
-    }
-
-    /**
-     * Set the clearable prop.
-     *
-     * @param  bool $value
-     * @return self
-     */
-    public function clearable($value = true): self
-    {
-        return $this->withProps(['clearable' => $value]);
+        return $this->setProp('addable', $value, $mapped);
     }
 
     /**
@@ -55,7 +40,7 @@ class SelectSearch extends Field
     public function defaultOptions(): array
     {
         return [
-            'key' => 'data',
+            'dataWrap' => 'data',
             'itemKey' => 'data',
             'value' => 'id',
         ];
@@ -73,14 +58,14 @@ class SelectSearch extends Field
     }
 
     /**
-     * Set the key option.
+     * Set the dataWrap option.
      *
-     * @param  string $key
+     * @param  string $dataWrap
      * @return self
      */
-    public function key(string $key): self
+    public function dataWrap(string $dataWrap): self
     {
-        return $this->withOptions(compact('key'));
+        return $this->withOptions(compact('dataWrap'));
     }
 
     /**
@@ -116,9 +101,7 @@ class SelectSearch extends Field
             $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
         }
 
-        $this->withProps([
-            'value' => $this->attribute,
-            'options' => $this->options(),
-        ]);
+        $this->setProp('value', $this->attribute);
+        $this->setProp('entities', $this->options(), false);
     }
 }
