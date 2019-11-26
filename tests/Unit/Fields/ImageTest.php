@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\Image;
+use Signifly\Travy\Schema\Support\UnmappedProp;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class ImageTest extends TestCase
@@ -20,8 +21,8 @@ class ImageTest extends TestCase
                 'id' => 'image',
                 'props' => [
                     'src' => 'src',
-                    'width' => '100%',
-                    'height' => '300px',
+                    '_width' => '100%',
+                    '_height' => '300px',
                 ],
             ],
         ];
@@ -42,9 +43,32 @@ class ImageTest extends TestCase
                 'id' => 'image',
                 'props' => [
                     'src' => 'src',
-                    'width' => '100%',
-                    'height' => '300px',
-                    'fit' => 'contain',
+                    '_width' => '100%',
+                    '_height' => '300px',
+                    '_fit' => 'contain',
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
+    public function it_can_use_unmapped_props()
+    {
+        $field = Image::make('Image', new UnmappedProp('test'))
+            ->size('100%', '300px')
+            ->fit('contain');
+
+        $expected = [
+            'name' => 'Image',
+            'attribute' => 'image',
+            'fieldType' => [
+                'id' => 'image',
+                'props' => [
+                    '_src' => 'test',
+                    '_width' => '100%',
+                    '_height' => '300px',
+                    '_fit' => 'contain',
                 ],
             ],
         ];

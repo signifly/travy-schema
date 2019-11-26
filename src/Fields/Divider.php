@@ -2,8 +2,6 @@
 
 namespace Signifly\Travy\Schema\Fields;
 
-use Illuminate\Support\Str;
-
 class Divider extends Field
 {
     /**
@@ -14,13 +12,6 @@ class Divider extends Field
     public $component = 'divider';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Create a new field.
      *
      * @param string $name
@@ -28,8 +19,7 @@ class Divider extends Field
      */
     public function __construct($name, $attribute = null)
     {
-        $this->name = null;
-        $this->attribute = $attribute ?? str_replace(' ', '_', Str::lower($name));
+        parent::construct(null, $attribute);
 
         $this->text($name);
     }
@@ -42,6 +32,6 @@ class Divider extends Field
      */
     public function text(string $text): self
     {
-        return $this->withProps(['text' => __($text)]);
+        return $this->withProps(compact('text'));
     }
 }

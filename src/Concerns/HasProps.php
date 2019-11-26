@@ -5,6 +5,7 @@ namespace Signifly\Travy\Schema\Concerns;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Signifly\Travy\Schema\Exceptions\InvalidPropsException;
+use Signifly\Travy\Schema\Support\UnmappedProp;
 
 trait HasProps
 {
@@ -80,8 +81,18 @@ trait HasProps
      * @param  array  $props
      * @return $this
      */
-    public function withProps(array $props): self
+    public function withProps(array $props, bool $mapped = true): self
     {
+        if ($mapped === false) {
+            foreach ($props as $key => $value) {
+                if ($value instanceof UnmappedProp) {
+                    continue;
+                }
+
+                $props[$key] = new UnmappedProp($value);
+            }
+        }
+
         $this->props = array_merge($this->props, $props);
 
         return $this;

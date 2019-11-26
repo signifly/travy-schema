@@ -37,7 +37,7 @@ abstract class Field implements JsonSerializable
     /**
      * The attribute / column name of the field.
      *
-     * @var string
+     * @var string|UnmappedProp
      */
     public $attribute;
 
