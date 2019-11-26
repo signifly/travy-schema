@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Signifly\\Travy\\Schema": "src"
+            "Signifly\\Travy\\Schema\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Signifly\\Travy\\Schema\\Tests": "tests"
+            "Signifly\\Travy\\Schema\\Tests\\": "tests"
         }
     },
     "scripts": {
