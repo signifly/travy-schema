@@ -4,8 +4,8 @@ namespace Signifly\Travy\Schema\Support;
 
 class UnmappedProp
 {
-    public $attribute;
-    public $value;
+    protected $attribute;
+    protected $value;
 
     public function __construct($value, $attribute = null)
     {
