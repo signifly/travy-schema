@@ -2,10 +2,13 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
+use Signifly\Travy\Schema\Concerns\Clearable;
 use Signifly\Travy\Schema\Fields\Field;
 
 class DatePicker extends Field
 {
+    use Clearable;
+
     /**
      * The field's component.
      *
@@ -14,54 +17,39 @@ class DatePicker extends Field
     public $component = 'input-date';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
-     * Set the clearable prop.
-     *
-     * @param  bool $value
-     * @return self
-     */
-    public function clearable($value = true): self
-    {
-        return $this->withProps(['clearable' => $value]);
-    }
-
-    /**
      * Set the format prop.
      *
      * @param  string $value
+     * @param  bool $mapped
      * @return self
      */
-    public function format(string $value): self
+    public function format(string $value, bool $mapped = false): self
     {
-        return $this->withProps(['format' => $value]);
+        return $this->withProps(['format' => $value], $mapped);
     }
 
     /**
      * Set the formatValue prop.
      *
      * @param  string $value
+     * @param  bool $mapped
      * @return self
      */
-    public function formatValue(string $value): self
+    public function formatValue(string $value, bool $mapped = false): self
     {
-        return $this->withProps(['formatValue' => $value]);
+        return $this->withProps(['formatValue' => $value], $mapped);
     }
 
     /**
      * Set the type prop.
      *
      * @param  string $type
+     * @param  bool $mapped
      * @return self
      */
-    public function type(string $type): self
+    public function type(string $type, bool $mapped = false): self
     {
-        return $this->withProps(compact('type'));
+        return $this->withProps(compact('type'), $mapped);
     }
 
     /**

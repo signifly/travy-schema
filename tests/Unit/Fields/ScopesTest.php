@@ -10,6 +10,8 @@ class ScopesTest extends TestCase
     /** @test */
     public function it_serializes_to_json()
     {
+        $this->markTestIncomplete('ReorderItems has been removed');
+
         $field = ReorderItems::make('Variants')
             ->scope('items', 'people')
             ->image('image_url')

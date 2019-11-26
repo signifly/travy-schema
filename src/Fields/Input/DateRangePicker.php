@@ -2,9 +2,7 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
-use Signifly\Travy\Schema\Fields\Field;
-
-class DateRangePicker extends Field
+class DateRangePicker extends DatePicker
 {
     /**
      * The field's component.
@@ -14,54 +12,27 @@ class DateRangePicker extends Field
     public $component = 'input-date-range';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Set the dateEnd prop.
      *
      * @param  string $key
+     * @param  bool $mapped
      * @return self
      */
-    public function end(string $key): self
+    public function end(string $key, bool $mapped = true): self
     {
-        return $this->withProps(['dateEnd' => $key]);
+        return $this->setProp('dateEnd', $key, $mapped);
     }
 
     /**
-     * Set the format prop.
+     * Set the dateStart prop.
      *
-     * @param  string $value
+     * @param  string $key
+     * @param  bool $mapped
      * @return self
      */
-    public function format(string $value): self
+    public function start(string $key, bool $mapped = true): self
     {
-        return $this->withProps(['format' => $value]);
-    }
-
-    /**
-     * Set the formatValue prop.
-     *
-     * @param  string $value
-     * @return self
-     */
-    public function formatValue(string $value): self
-    {
-        return $this->withProps(['formatValue' => $value]);
-    }
-
-    /**
-     * Set the type prop.
-     *
-     * @param  string $type
-     * @return self
-     */
-    public function type(string $type): self
-    {
-        return $this->withProps(compact('type'));
+        return $this->setProp('dateStart', $key, $mapped);
     }
 
     /**
@@ -71,6 +42,5 @@ class DateRangePicker extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps(['dateStart' => $this->attribute]);
     }
 }

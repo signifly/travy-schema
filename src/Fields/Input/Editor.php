@@ -14,13 +14,6 @@ class Editor extends Field
     public $component = 'input-editor-markdown';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * The options to apply to the field type.
      *
      * @return void
