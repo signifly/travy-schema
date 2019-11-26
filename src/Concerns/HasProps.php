@@ -68,9 +68,9 @@ trait HasProps
      * @param mixed $value
      * @return self
      */
-    public function setProp(string $key, $value): self
+    public function setProp(string $key, $value, bool $mapped = true): self
     {
-        Arr::set($this->props, $key, $value);
+        Arr::set($this->props, $key, $mapped ? $value : new UnmappedProp($value));
 
         return $this;
     }

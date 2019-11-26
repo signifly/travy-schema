@@ -5,17 +5,11 @@ namespace Signifly\Travy\Schema\Fields\Input;
 use Signifly\Travy\Schema\Concerns\HasActions;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 use Signifly\Travy\Schema\Fields\Field;
-use Signifly\Travy\Schema\Support\UnmappedProp;
 
 class ReorderItems extends Field
 {
     use HasActions;
     use HasEndpoint;
-
-    protected $propsValidationRules = [
-        'endpoint' => 'required',
-        'items' => 'required|array',
-    ];
 
     /**
      * The field's component.
@@ -25,39 +19,37 @@ class ReorderItems extends Field
     public $component = 'input-reorder-items';
 
     /**
-     * Indicates if the element should be shown on the index view.
+     * The validation rules for props.
      *
-     * @var bool
+     * @var array
      */
-    public $showOnIndex = false;
-
-    /**
-     * Indicates if the element should be shown on the creation view.
-     *
-     * @var bool
-     */
-    public $showOnCreation = false;
+    protected $propsValidationRules = [
+        'endpoint' => 'required',
+        'items' => 'required|array',
+    ];
 
     /**
      * Set the items.image prop.
      *
      * @param  string $key
+     * @param  bool $mapped
      * @return self
      */
-    public function image(string $key): self
+    public function image(string $key, bool $mapped = true): self
     {
-        return $this->setProp('items.image', $key);
+        return $this->setProp('items.image', $key, $mapped);
     }
 
     /**
      * Set the items.list prop.
      *
      * @param  array<label, value>  $list
+     * @param  bool $mapped
      * @return self
      */
-    public function list(array $list): self
+    public function list(array $list, bool $mapped = true): self
     {
-        return $this->setProp('items.list', $list);
+        return $this->setProp('items.list', $list, $mapped);
     }
 
     /**
@@ -69,8 +61,9 @@ class ReorderItems extends Field
     {
         $this->setProp('items.data', $this->attribute);
         $this->setProp('items.actions', $this->preparedActions());
+
         if ($this->hasEndpoint()) {
-            $this->setProp('endpoint', new UnmappedProp($this->endpoint->toArray()));
+            $this->setProp('endpoint', $this->endpoint->toArray(), false);
         }
     }
 }

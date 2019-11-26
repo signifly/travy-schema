@@ -19,8 +19,8 @@ class Divider extends Field
      */
     public function __construct($name, $attribute = null)
     {
-        parent::construct(null, $attribute);
-
+        $this->name = null;
+        $this->setAttribute($name, $attribute);
         $this->text($name);
     }
 
@@ -30,8 +30,8 @@ class Divider extends Field
      * @param  string $text
      * @return self
      */
-    public function text(string $text): self
+    public function text(string $text, bool $mapped = false): self
     {
-        return $this->withProps(compact('text'));
+        return $this->setProp('text', $text, $mapped);
     }
 }

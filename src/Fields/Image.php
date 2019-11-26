@@ -31,7 +31,7 @@ class Image extends Field
      * @param  bool $mapped
      * @return self
      */
-    public function size($width = '200px', $height = '200px', bool $mapped = false): self
+    public function size(string $width = '200px', string $height = '200px', bool $mapped = false): self
     {
         return $this->withProps(compact('width', 'height'), $mapped);
     }

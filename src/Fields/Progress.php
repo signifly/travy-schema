@@ -15,22 +15,24 @@ class Progress extends Field
      * Set the status prop (alias for status).
      *
      * @param  string $key
+     * @param  bool $mapped
      * @return self
      */
-    public function color(string $key): self
+    public function color(string $key, bool $mapped = true): self
     {
-        return $this->status($key);
+        return $this->status($key, $mapped);
     }
 
     /**
      * Set the status prop.
      *
      * @param  string $key
+     * @param  bool $mapped
      * @return self
      */
-    public function status(string $key): self
+    public function status(string $key, bool $mapped = true): self
     {
-        return $this->withProps(['status' => $key]);
+        return $this->setProp('status', $key, $mapped);
     }
 
     /**
@@ -40,6 +42,6 @@ class Progress extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps(['percentage' => $this->attribute]);
+        $this->setProp('percentage', $this->attribute);
     }
 }

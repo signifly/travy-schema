@@ -57,6 +57,17 @@ abstract class Field implements JsonSerializable
     public function __construct($name, $attribute = null)
     {
         $this->name = $name;
+        $this->setAttribute($name, $attribute);
+    }
+
+    /**
+     * Set the attribute for the field.
+     *
+     * @param string $name
+     * @param string|null $attribute
+     */
+    protected function setAttribute($name, $attribute = null): void
+    {
         $this->attribute = $attribute ?? str_replace(' ', '_', Str::lower($name));
     }
 
@@ -207,7 +218,7 @@ abstract class Field implements JsonSerializable
 
         return array_merge([
             'name' => $this->name,
-            'attribute' => (new AttributeResolver())->resolve($this->attribute, $this->name),
+            'attribute' => (new AttributeResolver())->resolve($this->attribute, $this->name ?? ''),
             'fieldType' => $this->fieldType(),
         ], $this->meta());
     }

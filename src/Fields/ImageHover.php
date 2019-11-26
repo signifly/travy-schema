@@ -18,6 +18,6 @@ class ImageHover extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps(['image' => $this->attribute]);
+        $this->withProps(['src' => $this->attribute]);
     }
 }
