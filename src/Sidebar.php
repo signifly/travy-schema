@@ -35,6 +35,20 @@ class Sidebar implements JsonSerializable
     }
 
     /**
+     * Prepare the groups for JSON serialization.
+     *
+     * @return array
+     */
+    protected function preparedGroups(): array
+    {
+        return collect($this->groups)
+            ->map(function (Group $group) {
+                return $group->jsonSerialize();
+            })
+            ->all();
+    }
+
+    /**
      * Prepare the sidebar for JSON serialization.
      *
      * @return array
@@ -43,7 +57,7 @@ class Sidebar implements JsonSerializable
     {
         return [
             'name' => $this->name,
-            'groups' => collect($this->groups)->jsonSerialize(),
+            'groups' => $this->preparedGroups(),
         ];
     }
 }

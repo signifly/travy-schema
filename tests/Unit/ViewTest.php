@@ -4,14 +4,10 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Signifly\Travy\Schema\Concerns\WithModifiers;
-use Signifly\Travy\Schema\Endpoint;
-use Signifly\Travy\Schema\Fields\Input\Select;
 use Signifly\Travy\Schema\Fields\Sidebar;
-use Signifly\Travy\Schema\Tab;
-use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
+use Signifly\Travy\Schema\Tests\Support\View\ModifierShopView;
+use Signifly\Travy\Schema\Tests\Support\View\ShopView;
 use Signifly\Travy\Schema\Tests\TestCase;
-use Signifly\Travy\Schema\View;
 
 class ViewTest extends TestCase
 {
@@ -41,47 +37,5 @@ class ViewTest extends TestCase
             $this->assertEquals('some_url', Arr::get($data, 'endpoint.url'));
             $this->assertEquals('Shop {name}', Arr::get($data, 'pageTitle'));
         });
-    }
-}
-
-class ShopView extends View
-{
-    public function pageTitle(): string
-    {
-        return 'Shop {name}';
-    }
-
-    public function hero(): array
-    {
-        return [
-            'title' => '{name}',
-            'subtitle' => 'Lorem ipsum bla bla bla bla',
-        ];
-    }
-
-    public function tabs(): array
-    {
-        return [
-            Tab::make('Details', new TestTable($this->request)),
-        ];
-    }
-
-    public function endpoint(): Endpoint
-    {
-        return new Endpoint('some_url');
-    }
-}
-
-class ModifierShopView extends ShopView implements WithModifiers
-{
-    public function modifiers(): array
-    {
-        return [
-            Select::make('Shop')
-                ->items([
-                    ['label' => 'Test', 'value' => 'test'],
-                    ['label' => 'Test 2', 'value' => 'test-2'],
-                ]),
-        ];
     }
 }
