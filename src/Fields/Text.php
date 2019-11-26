@@ -22,11 +22,12 @@ class Text extends Field
      * Set the align prop.
      *
      * @param  string $align
+     * @param  bool $mapped
      * @return self
      */
-    public function align(string $align): self
+    public function align(string $align, bool $mapped = false): self
     {
-        return $this->withProps(compact('align'));
+        return $this->withProps(compact('align'), $mapped);
     }
 
     /**
@@ -45,22 +46,12 @@ class Text extends Field
      * Set the bold prop.
      *
      * @param  bool $value
+     * @param  bool $mapped
      * @return self
      */
-    public function bold($value = true): self
+    public function bold($value = true, bool $mapped = false): self
     {
-        return $this->withProps(['bold' => $value]);
-    }
-
-    /**
-     * Set the status prop.
-     *
-     * @param  string $status
-     * @return self
-     */
-    public function color(string $status): self
-    {
-        return $this->withProps(compact('status'));
+        return $this->withProps(['bold' => $value], $mapped);
     }
 
     /**
@@ -71,40 +62,54 @@ class Text extends Field
      */
     public function default($text): self
     {
-        return $this->withProps(['textDefault' => $text]);
+        return $this->setProp('_fallback.text', $text);
+    }
+
+    /**
+     * Set the status prop.
+     *
+     * @param  string $status
+     * @return self
+     */
+    public function status(string $status, bool $mapped = true): self
+    {
+        return $this->withProps(compact('status'), $mapped);
     }
 
     /**
      * Set the subtitle prop.
      *
      * @param  string $subtitle
+     * @param  bool $mapped
      * @return self
      */
-    public function subtitle(string $subtitle): self
+    public function subtitle(string $subtitle, bool $mapped = true): self
     {
-        return $this->withProps(compact('subtitle'));
+        return $this->withProps(compact('subtitle'), $mapped);
     }
 
     /**
      * Set the tooltip prop.
      *
      * @param  string $tooltip
+     * @param  bool $mapped
      * @return self
      */
-    public function tooltip(string $tooltip): self
+    public function tooltip(string $tooltip, bool $mapped = true): self
     {
-        return $this->withProps(compact('tooltip'));
+        return $this->withProps(compact('tooltip'), $mapped);
     }
 
     /**
      * Set the type prop.
      *
      * @param  string $type
+     * @param  bool $mapped
      * @return self
      */
-    public function type(string $type): self
+    public function type(string $type, bool $mapped = false): self
     {
-        return $this->withProps(compact('type'));
+        return $this->withProps(compact('type'), $mapped);
     }
 
     /**
@@ -113,9 +118,9 @@ class Text extends Field
      * @param  string $unit
      * @return self
      */
-    public function unit(string $unit): self
+    public function unit(string $unit, bool $mapped = false): self
     {
-        return $this->withProps(compact('unit'));
+        return $this->withProps(compact('unit'), $mapped);
     }
 
     /**

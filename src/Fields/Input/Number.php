@@ -24,11 +24,12 @@ class Number extends Field
      * Set the unit prop.
      *
      * @param  string $unit
+     * @param  bool $mapped
      * @return self
      */
-    public function unit(string $unit): self
+    public function unit(string $unit, bool $mapped = false): self
     {
-        return $this->withProps(compact('unit'));
+        return $this->setProp('unit', $unit, $mapped);
     }
 
     /**

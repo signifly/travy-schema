@@ -127,7 +127,7 @@ abstract class Field implements JsonSerializable
      */
     public function disabled($value = true): self
     {
-        return $this->withProps(['disabled' => $value]);
+        return $this->setProp('disabled', $value, false);
     }
 
     /**

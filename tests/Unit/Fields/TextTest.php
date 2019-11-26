@@ -57,7 +57,7 @@ class TextTest extends TestCase
                 'id' => 'input-text',
                 'props' => [
                     'value' => 'email',
-                    'type' => 'email',
+                    '_type' => 'email',
                 ],
             ],
         ];
@@ -78,7 +78,7 @@ class TextTest extends TestCase
                 'id' => 'input-text',
                 'props' => [
                     'value' => 'height',
-                    'unit' => 'cm',
+                    '_unit' => 'cm',
                 ],
             ],
         ];

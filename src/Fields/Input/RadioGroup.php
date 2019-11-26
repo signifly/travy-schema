@@ -14,21 +14,15 @@ class RadioGroup extends Field
     public $component = 'input-radio-group';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Set the items.
      *
      * @param  array  $items
+     * @param  bool $items
      * @return self
      */
-    public function items(array $items): self
+    public function items(array $items, bool $mapped = false): self
     {
-        return $this->withProps(['items' => $items]);
+        return $this->setProp('items', $items, $mapped);
     }
 
     /**

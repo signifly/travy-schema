@@ -24,33 +24,36 @@ class Precision extends Field
      * Set the max prop.
      *
      * @param  float  $value
+     * @param  bool $mapped
      * @return self
      */
-    public function max(float $value): self
+    public function max(float $value, bool $mapped = false): self
     {
-        return $this->withProps(['max' => $value]);
+        return $this->setProp('max', $value, $mapped);
     }
 
     /**
      * Set the precision prop.
      *
      * @param  int    $value
+     * @param  bool $mapped
      * @return self
      */
-    public function precision(int $value): self
+    public function precision(int $value, bool $mapped = false): self
     {
-        return $this->withProps(['precision' => $value]);
+        return $this->setProp('precision', $value, $mapped);
     }
 
     /**
      * Set the step prop.
      *
      * @param  float  $value
+     * @param  bool $mapped
      * @return self
      */
-    public function step(float $value): self
+    public function step(float $value, bool $mapped = false): self
     {
-        return $this->withProps(['step' => $value]);
+        return $this->setProp('step', $value, $mapped);
     }
 
     /**
