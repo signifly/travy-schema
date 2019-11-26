@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema;
 
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 
 class Sidebar implements JsonSerializable
 {
@@ -17,21 +17,21 @@ class Sidebar implements JsonSerializable
     protected $name;
 
     /**
-     * The sidebar sections.
+     * The sidebar groups.
      *
      * @var array
      */
-    protected $sections;
+    protected $groups;
 
     /**
      * Create a new tab.
      *
      * @param string $name
      */
-    public function __construct($name, array $sections)
+    public function __construct($name, array $groups)
     {
         $this->name = $name;
-        $this->sections = $sections;
+        $this->groups = $groups;
     }
 
     /**
@@ -43,7 +43,7 @@ class Sidebar implements JsonSerializable
     {
         return [
             'name' => $this->name,
-            'sections' => collect($this->sections)->jsonSerialize(),
+            'groups' => collect($this->groups)->jsonSerialize(),
         ];
     }
 }

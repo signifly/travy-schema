@@ -3,7 +3,8 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\Date;
-use Signifly\Travy\Schema\Fields\Sidebar;
+use Signifly\Travy\Schema\Group;
+use Signifly\Travy\Schema\Sidebar;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class SidebarTest extends TestCase
@@ -11,27 +12,32 @@ class SidebarTest extends TestCase
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = Sidebar::make('History')
-            ->fields([
+        $sidebar = Sidebar::make('History', [
+            new Group('History', [
                 Date::make('Created at'),
-            ]);
+            ]),
+        ]);
 
         $expected = [
-            'id' => 'history',
-            'title' => 'History',
-            'fields' => [
+            'name' => 'History',
+            'groups' => [
                 [
-                    'name' => 'Created at',
-                    'attribute' => 'created_at',
-                    'fieldType' => [
-                        'id' => 'date',
-                        'props' => [
-                            'timestamp' => 'created_at',
+                    'name' => 'History',
+                    'fields' => [
+                        [
+                            'name' => 'Created at',
+                            'attribute' => 'created_at',
+                            'fieldType' => [
+                                'id' => 'date',
+                                'props' => [
+                                    'timestamp' => 'created_at',
+                                ],
+                            ],
                         ],
                     ],
                 ],
             ],
         ];
-        $this->assertEquals($expected, $field->jsonSerialize());
+        $this->assertEquals($expected, $sidebar->jsonSerialize());
     }
 }

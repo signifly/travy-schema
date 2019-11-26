@@ -4,10 +4,10 @@ namespace Signifly\Travy\Schema\Fields;
 
 use Illuminate\Support\Str;
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasMetaData;
 use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Support\AttributeResolver;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;

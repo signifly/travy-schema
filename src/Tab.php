@@ -4,8 +4,8 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Contracts\Table;
 use Signifly\Travy\Schema\Support\FieldCollection;
 

@@ -4,7 +4,7 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 
 abstract class Action implements Arrayable, JsonSerializable
 {

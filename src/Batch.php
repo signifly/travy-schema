@@ -4,8 +4,8 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Support\Arr;
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
 use Signifly\Travy\Schema\Concerns\HasActions;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 
 class Batch implements JsonSerializable
 {

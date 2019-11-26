@@ -8,8 +8,8 @@ use Signifly\Travy\Schema\Concerns\WithModifiers;
 use Signifly\Travy\Schema\Endpoint;
 use Signifly\Travy\Schema\Fields\Input\Select;
 use Signifly\Travy\Schema\Fields\Sidebar;
-use Signifly\Travy\Schema\Fields\Tab;
-use Signifly\Travy\Schema\Fields\Text;
+use Signifly\Travy\Schema\Tab;
+use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
 use Signifly\Travy\Schema\Tests\TestCase;
 use Signifly\Travy\Schema\View;
 
@@ -62,12 +62,7 @@ class ShopView extends View
     public function tabs(): array
     {
         return [
-            Tab::make('Details')
-                ->type('table')
-                ->endpoint('some_url')
-                ->fields([
-                    Text::make('Name'),
-                ]),
+            Tab::make('Details', new TestTable($this->request)),
         ];
     }
 

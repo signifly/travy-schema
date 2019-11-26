@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema;
 
 use JsonSerializable;
-use Signifly\Travy\Concerns\Instantiable;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Support\FieldCollection;
 
 class Group implements JsonSerializable
