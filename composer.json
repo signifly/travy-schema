@@ -1,0 +1,38 @@
+{
+    "name": "signifly/travy-schema",
+    "description": "Schema for Travy",
+    "homepage": "https://github.com/signifly/travy-schema",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Morten Poul Jensen",
+            "email": "mpj@signifly.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0|^8.0",
+        "orchestra/testbench": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Signifly\\Travy\\Schema": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Signifly\\Travy\\Schema\\Tests": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {}
+}
