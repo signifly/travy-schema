@@ -2,13 +2,24 @@
 
 namespace Signifly\Travy\Schema;
 
+use Signifly\Travy\Schema\Concerns\HasActions;
+
 class Dropdown extends Action
 {
-    public function __construct($title, $status = null)
-    {
-        parent::__construct($title, $status);
+    use HasActions;
 
-        $this->type('dropdown');
-        $this->icon('arrow-down');
+    /**
+     * The action type.
+     *
+     * @return array
+     */
+    public function actionType(): array
+    {
+        return [
+            'id' => 'dropdown',
+            'props' => [
+                'actions' => $this->preparedActions(),
+            ],
+        ];
     }
 }
