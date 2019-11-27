@@ -100,4 +100,36 @@ class SelectSearchTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = SelectSearch::make('Currencies')
+            ->endpoint('some_url')
+            ->label('name')
+            ->value('id')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
+            'fieldType' => [
+                'id' => 'input-select-search',
+                'props' => [
+                    'value' => 'currencies',
+                    '_entities' => [
+                        'endpoint' => [
+                            'url' => 'some_url',
+                        ],
+                        'label' => 'name',
+                        'value' => 'id',
+                        'dataWrap' => 'data',
+                        'itemKey' => 'data',
+                    ],
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

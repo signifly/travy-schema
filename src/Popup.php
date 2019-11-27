@@ -41,7 +41,7 @@ class Popup extends Action
             'props' => [
                 'title' => $this->name,
                 'text' => $this->text ?? $this->defaultText(),
-                'endpoint' => $this->endpoint->toArray(),
+                'endpoint' => $this->endpoint,
                 'payload' => $this->payload ?? (object) [],
             ],
         ];
@@ -79,7 +79,7 @@ class Popup extends Action
      * @todo Refactor to language files
      * @return string
      */
-    protected function defaultText(): string
+    public function defaultText(): string
     {
         return 'Are you sure? Please confirm this action.';
     }

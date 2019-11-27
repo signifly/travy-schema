@@ -24,4 +24,24 @@ class CheckboxTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = Checkbox::make('Accept Terms')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Accept Terms',
+            'attribute' => 'accept_terms',
+            'fieldType' => [
+                'id' => 'input-checkbox',
+                'props' => [
+                    'value' => 'accept_terms',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

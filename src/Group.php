@@ -55,9 +55,9 @@ class Group implements JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        return [
+        return (new Schema([
             'name' => $this->name,
-            'fields' => FieldCollection::make($this->fields)->jsonSerialize(),
-        ];
+            'fields' => FieldCollection::make($this->fields),
+        ]))->toArray();
     }
 }

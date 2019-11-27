@@ -44,4 +44,24 @@ class DatePickerTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = DatePicker::make('Date')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Date',
+            'attribute' => 'date',
+            'fieldType' => [
+                'id' => 'input-date',
+                'props' => [
+                    'date' => 'date',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

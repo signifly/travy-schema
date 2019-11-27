@@ -43,9 +43,9 @@ class Modal extends Action
             'id' => 'modal',
             'props' => [
                 'name' => $this->name,
-                'endpoint' => $this->endpoint->toArray(),
-                'fields' => $fields->jsonSerialize(),
-                'payload' => array_merge($fields->toData(), $this->payload),
+                'endpoint' => $this->endpoint,
+                'fields' => $fields,
+                'payload' => $this->payload ?? ['data' => $fields->toData()],
             ],
         ];
     }
@@ -53,12 +53,12 @@ class Modal extends Action
     /**
      * Set the fields prop.
      *
-     * @param  array $value
+     * @param  array $fields
      * @return self
      */
     public function fields(array $fields): self
     {
-        $this->fields = $value;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -66,12 +66,12 @@ class Modal extends Action
     /**
      * Set the payload prop.
      *
-     * @param  array $value
+     * @param  array $payload
      * @return self
      */
-    public function payload(array $value): self
+    public function payload(array $payload): self
     {
-        $this->payload = $value;
+        $this->payload = $payload;
 
         return $this;
     }

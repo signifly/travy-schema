@@ -62,11 +62,21 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     abstract public function actionType(): array;
 
+    /**
+     * Prepare the action for JSON serialization.
+     *
+     * @return array
+     */
     public function jsonSerialize()
     {
         return $this->toArray();
     }
 
+    /**
+     * Convert the action to an array.
+     *
+     * @return array
+     */
     public function toArray()
     {
         $schema = new Schema([

@@ -30,4 +30,30 @@ class PrecisionTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = Precision::make('Number')
+            ->precision(2)
+            ->step(0.1)
+            ->disabled();
+
+        $this->assertSame(0, $field->defaultValue);
+
+        $expected = [
+            'name' => 'Number',
+            'attribute' => 'number',
+            'fieldType' => [
+                'id' => 'input-precision',
+                'props' => [
+                    'value' => 'number',
+                    '_precision' => 2,
+                    '_step' => 0.1,
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

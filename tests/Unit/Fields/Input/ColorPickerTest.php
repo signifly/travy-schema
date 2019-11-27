@@ -24,4 +24,24 @@ class ColorPickerTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = ColorPicker::make('Color Code')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Color Code',
+            'attribute' => 'color_code',
+            'fieldType' => [
+                'id' => 'input-color-picker',
+                'props' => [
+                    'value' => 'color_code',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

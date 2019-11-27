@@ -3,12 +3,19 @@
 namespace Signifly\Travy\Schema;
 
 use ArrayAccess;
-use JsonSerializable;
-use Illuminate\Support\Arr;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Support\Arr;
+use JsonSerializable;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/**
+ * @internal
+ */
 class Schema implements ArrayAccess, Arrayable, JsonSerializable
 {
+    use Instantiable;
+
     /**
      * All of the attributes set on the Schema instance.
      *
@@ -69,7 +76,30 @@ class Schema implements ArrayAccess, Arrayable, JsonSerializable
      */
     public function toArray()
     {
-        return collect($this->attributes)->jsonSerialize();
+        return $this->resolve($this->attributes);
+    }
+
+    /**
+     * Resolve data.
+     *
+     * @param  array  $value
+     * @return array
+     */
+    protected function resolve(array $data)
+    {
+        return array_map(function ($value) {
+            if (is_array($value)) {
+                return $this->resolve($value);
+            } elseif ($value instanceof JsonSerializable) {
+                return $value->jsonSerialize();
+            } elseif ($value instanceof Jsonable) {
+                return json_decode($value->toJson(), true);
+            } elseif ($value instanceof Arrayable) {
+                return $value->toArray();
+            }
+
+            return $value;
+        }, $data);
     }
 
     /**

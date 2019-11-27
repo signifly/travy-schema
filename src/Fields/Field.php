@@ -8,6 +8,7 @@ use Signifly\Travy\Schema\Concerns\HasMetaData;
 use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
 use Signifly\Travy\Schema\Concerns\Instantiable;
+use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\AttributeResolver;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
@@ -199,10 +200,10 @@ abstract class Field implements JsonSerializable
         // Guard against invalid props *before* transforming (mapped/unmapped and scoping) them...
         $this->guardAgainstInvalidProps($props);
 
-        return [
+        return Schema::make([
             'id' => $this->component,
             'props' => $this->transformProps($props),
-        ];
+        ])->toArray();
     }
 
     /**
@@ -223,6 +224,12 @@ abstract class Field implements JsonSerializable
         ], $this->meta());
     }
 
+    /**
+     * Transform the props.
+     *
+     * @param  array  $props
+     * @return array
+     */
     protected function transformProps(array $props): array
     {
         return (new PropsResolver())->resolve(

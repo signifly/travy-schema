@@ -4,9 +4,16 @@ namespace Signifly\Travy\Schema;
 
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 
-class Show extends Action
+class Link extends Action
 {
     use HasEndpoint;
+
+    /**
+     * The URL to link to.
+     *
+     * @var string
+     */
+    protected $url;
 
     /**
      * The action type.
@@ -16,21 +23,23 @@ class Show extends Action
     public function actionType(): array
     {
         return [
-            'id' => 'show',
+            'id' => 'link',
             'props' => [
-                'endpoint' => $this->endpoint->toArray(),
+                'url' => $this->url,
             ],
         ];
     }
 
     /**
-     * Set the endpoint by url.
+     * Set the url.
      *
      * @param  string $url
      * @return self
      */
     public function url(string $url): self
     {
-        return $this->endpoint($url, 'get');
+        $this->url = $url;
+
+        return $this;
     }
 }

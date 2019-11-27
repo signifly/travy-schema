@@ -24,4 +24,24 @@ class TextareaTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = Textarea::make('Content')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Content',
+            'attribute' => 'content',
+            'fieldType' => [
+                'id' => 'input-textarea',
+                'props' => [
+                    'text' => 'content',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

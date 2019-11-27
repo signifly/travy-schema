@@ -9,28 +9,10 @@ abstract class Table extends Definition implements Contract
 {
     use AppliesConcerns;
 
-    public function preparedActions(): array
-    {
-        return collect($this->actions())
-            ->map->jsonSerialize()
-            ->toArray();
-    }
-
-    public function preparedColumns(): array
-    {
-        return collect($this->columns())
-            ->mapInto(Column::class)
-            ->map(function ($column, $index) {
-                return $column->order($index + 1)
-                    ->jsonSerialize();
-            })
-            ->toArray();
-    }
-
     public function toSchema(): Schema
     {
         $schema = new Schema([
-            'columns' => $this->preparedColumns(),
+            'columns' => $this->columns(),
             'endpoint' => $this->endpoint(),
         ]);
 

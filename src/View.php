@@ -14,21 +14,6 @@ abstract class View extends Definition implements Contract, WithEndpoint
 
     abstract public function hero(): array;
 
-    public function preparedActions(): array
-    {
-        return collect($this->actions())->jsonSerialize();
-    }
-
-    public function preparedSidebars(): array
-    {
-        return collect($this->sidebars())->jsonSerialize();
-    }
-
-    public function preparedTabs(): array
-    {
-        return collect($this->tabs())->jsonSerialize();
-    }
-
     public function toArray()
     {
         $schema = new Schema([

@@ -48,4 +48,26 @@ class NumberTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = Number::make('Price')
+            ->disabled();
+
+        $this->assertSame(0, $field->defaultValue);
+
+        $expected = [
+            'name' => 'Price',
+            'attribute' => 'price',
+            'fieldType' => [
+                'id' => 'input-number',
+                'props' => [
+                    'value' => 'price',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

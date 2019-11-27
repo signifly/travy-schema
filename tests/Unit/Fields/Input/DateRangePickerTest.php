@@ -50,4 +50,27 @@ class DateRangePickerTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = DateRangePicker::make('Accessibility')
+            ->start('start_date')
+            ->end('end_date')
+            ->disabled();
+
+        $expected = [
+            'name' => 'Accessibility',
+            'attribute' => 'accessibility',
+            'fieldType' => [
+                'id' => 'input-date-range',
+                'props' => [
+                    'dateStart' => 'start_date',
+                    'dateEnd' => 'end_date',
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

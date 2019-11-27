@@ -55,6 +55,17 @@ trait HasProps
     }
 
     /**
+     * Check if a given prop is missing.
+     *
+     * @param  string $key
+     * @return bool
+     */
+    public function missingProp(string $key)
+    {
+        return ! $this->hasProp($key);
+    }
+
+    /**
      * Get the props for the element.
      *
      * @return array

@@ -72,7 +72,7 @@ class Batch implements JsonSerializable
     }
 
     /**
-     * Prepare the field for JSON serialization.
+     * Prepare the batch for JSON serialization.
      *
      * @return array
      */

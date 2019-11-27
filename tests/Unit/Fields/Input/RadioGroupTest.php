@@ -11,10 +11,7 @@ class RadioGroupTest extends TestCase
     public function it_serializes_to_json()
     {
         $field = RadioGroup::make('Option')
-            ->items($items = [
-                ['label' => 'Option A', 'value' => true],
-                ['label' => 'Option B', 'value' => false],
-            ]);
+            ->items($items = $this->validItems());
 
         $expected = [
             'name' => 'Option',
@@ -28,5 +25,35 @@ class RadioGroupTest extends TestCase
             ],
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $field = RadioGroup::make('Option')
+            ->items($items = $this->validItems())
+            ->disabled();
+
+        $expected = [
+            'name' => 'Option',
+            'attribute' => 'option',
+            'fieldType' => [
+                'id' => 'input-radio-group',
+                'props' => [
+                    'value' => 'option',
+                    '_items' => $items,
+                    '_disabled' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    protected function validItems(): array
+    {
+        return [
+            ['label' => 'Option A', 'value' => true],
+            ['label' => 'Option B', 'value' => false],
+        ];
     }
 }

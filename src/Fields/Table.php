@@ -2,12 +2,8 @@
 
 namespace Signifly\Travy\Schema\Fields;
 
-use Signifly\Travy\Schema\Concerns\HasColumns;
-
 class Table extends Field
 {
-    use HasColumns;
-
     /**
      * The field's component.
      *
@@ -16,21 +12,25 @@ class Table extends Field
     public $component = 'table';
 
     /**
-     * Indicates if the element should be shown on the index view.
-     *
-     * @var bool
-     */
-    public $showOnIndex = false;
-
-    /**
      * Set the columnsData prop.
      *
-     * @param  string  $data
+     * @param  array|string  $data
      * @return self
      */
-    public function data(string $data): self
+    public function data($data, bool $mapped = true): self
     {
-        return $this->withProps(['columnsData' => $data]);
+        return $this->setProp('columnsData', $data, $mapped);
+    }
+
+    /**
+     * Set the columns prop.
+     *
+     * @param  array  $fields
+     * @return self
+     */
+    public function columns(array $fields): self
+    {
+        return $this->setProp('columns', $fields, false);
     }
 
     /**
@@ -40,8 +40,8 @@ class Table extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps([
-            'columns' => $this->preparedColumns(),
-        ]);
+        if ($this->missingProp('columnsData')) {
+            $this->setProp('columnsData', $this->attribute);
+        }
     }
 }
