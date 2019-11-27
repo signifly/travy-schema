@@ -2,25 +2,47 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields\Input;
 
-use Signifly\Travy\Schema\Fields\Input\Select;
+use Signifly\Travy\Schema\Fields\Input\SelectMulti;
 use Signifly\Travy\Schema\Tests\TestCase;
 
-class SelectTest extends TestCase
+class SelectMultiTest extends TestCase
 {
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = SelectMulti::make('Currencies')
             ->items($items = $this->validItems());
 
         $expected = [
-            'name' => 'Currency',
-            'attribute' => 'currency_id',
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
             'fieldType' => [
-                'id' => 'input-select',
+                'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currency_id',
+                    'value' => 'currencies',
                     '_entities' => $items,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
+    public function it_is_addable()
+    {
+        $field = SelectMulti::make('Currencies')
+            ->items($items = $this->validItems())
+            ->addable();
+
+        $expected = [
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
+            'fieldType' => [
+                'id' => 'input-select-multi',
+                'props' => [
+                    'value' => 'currencies',
+                    '_entities' => $items,
+                    '_addable' => true,
                 ],
             ],
         ];
@@ -30,17 +52,17 @@ class SelectTest extends TestCase
     /** @test */
     public function it_is_clearable()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = SelectMulti::make('Currencies')
             ->items($items = $this->validItems())
             ->clearable();
 
         $expected = [
-            'name' => 'Currency',
-            'attribute' => 'currency_id',
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
             'fieldType' => [
-                'id' => 'input-select',
+                'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currency_id',
+                    'value' => 'currencies',
                     '_entities' => $items,
                     '_clearable' => true,
                 ],
@@ -52,17 +74,17 @@ class SelectTest extends TestCase
     /** @test */
     public function it_can_be_disabled()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = SelectMulti::make('Currencies')
             ->items($items = $this->validItems())
             ->disabled();
 
         $expected = [
-            'name' => 'Currency',
-            'attribute' => 'currency_id',
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
             'fieldType' => [
-                'id' => 'input-select',
+                'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currency_id',
+                    'value' => 'currencies',
                     '_entities' => $items,
                     '_disabled' => true,
                 ],

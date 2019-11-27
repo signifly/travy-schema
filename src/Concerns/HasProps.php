@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use Signifly\Travy\Schema\Exceptions\InvalidPropsException;
 use Signifly\Travy\Schema\Support\UnmappedProp;
 
+/**
+ * @internal
+ */
 trait HasProps
 {
     /**

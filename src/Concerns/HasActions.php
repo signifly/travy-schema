@@ -4,6 +4,9 @@ namespace Signifly\Travy\Schema\Concerns;
 
 use Signifly\Travy\Schema\Action;
 
+/**
+ * @internal
+ */
 trait HasActions
 {
     /**

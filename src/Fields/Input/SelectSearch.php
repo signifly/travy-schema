@@ -2,6 +2,7 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
+use Signifly\Travy\Schema\Concerns\Addable;
 use Signifly\Travy\Schema\Concerns\Clearable;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 use Signifly\Travy\Schema\Concerns\HasOptions;
@@ -9,6 +10,7 @@ use Signifly\Travy\Schema\Fields\Field;
 
 class SelectSearch extends Field
 {
+    use Addable;
     use Clearable;
     use HasEndpoint;
     use HasOptions;
@@ -19,18 +21,6 @@ class SelectSearch extends Field
      * @var string
      */
     public $component = 'input-select-search';
-
-    /**
-     * Set the addable prop.
-     *
-     * @param  bool $value
-     * @param  bool $mapped
-     * @return self
-     */
-    public function addable($value = true, bool $mapped = false): self
-    {
-        return $this->setProp('addable', $value, $mapped);
-    }
 
     /**
      * The default options for the element.

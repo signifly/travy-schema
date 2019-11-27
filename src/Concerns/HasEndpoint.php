@@ -5,6 +5,9 @@ namespace Signifly\Travy\Schema\Concerns;
 use Closure;
 use Signifly\Travy\Schema\Endpoint;
 
+/**
+ * @internal
+ */
 trait HasEndpoint
 {
     /**

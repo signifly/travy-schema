@@ -5,6 +5,9 @@ namespace Signifly\Travy\Schema\Concerns;
 use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\FieldCollection;
 
+/**
+ * @internal
+ */
 trait AppliesConcerns
 {
     protected function applyConcerns(Schema $schema): void

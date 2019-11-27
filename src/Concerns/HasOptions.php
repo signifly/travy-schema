@@ -2,6 +2,9 @@
 
 namespace Signifly\Travy\Schema\Concerns;
 
+/**
+ * @internal
+ */
 trait HasOptions
 {
     /**

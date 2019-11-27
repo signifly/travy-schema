@@ -36,4 +36,68 @@ class SelectSearchTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_is_clearable()
+    {
+        $field = SelectSearch::make('Currencies')
+            ->endpoint('some_url')
+            ->label('name')
+            ->value('id')
+            ->clearable();
+
+        $expected = [
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
+            'fieldType' => [
+                'id' => 'input-select-search',
+                'props' => [
+                    'value' => 'currencies',
+                    '_entities' => [
+                        'endpoint' => [
+                            'url' => 'some_url',
+                        ],
+                        'label' => 'name',
+                        'value' => 'id',
+                        'dataWrap' => 'data',
+                        'itemKey' => 'data',
+                    ],
+                    '_clearable' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
+    public function it_is_addable()
+    {
+        $field = SelectSearch::make('Currencies')
+            ->endpoint('some_url')
+            ->label('name')
+            ->value('id')
+            ->addable();
+
+        $expected = [
+            'name' => 'Currencies',
+            'attribute' => 'currencies',
+            'fieldType' => [
+                'id' => 'input-select-search',
+                'props' => [
+                    'value' => 'currencies',
+                    '_entities' => [
+                        'endpoint' => [
+                            'url' => 'some_url',
+                        ],
+                        'label' => 'name',
+                        'value' => 'id',
+                        'dataWrap' => 'data',
+                        'itemKey' => 'data',
+                    ],
+                    '_addable' => true,
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }

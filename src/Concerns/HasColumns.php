@@ -5,6 +5,9 @@ namespace Signifly\Travy\Schema\Concerns;
 use Signifly\Travy\Schema\Column;
 use Signifly\Travy\Schema\Fields\Field;
 
+/**
+ * @internal
+ */
 trait HasColumns
 {
     /**

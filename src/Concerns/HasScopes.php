@@ -4,6 +4,9 @@ namespace Signifly\Travy\Schema\Concerns;
 
 use Illuminate\Support\Arr;
 
+/**
+ * @internal
+ */
 trait HasScopes
 {
     /**

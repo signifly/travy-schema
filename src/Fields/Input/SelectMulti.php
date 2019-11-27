@@ -2,10 +2,13 @@
 
 namespace Signifly\Travy\Schema\Fields\Input;
 
+use Signifly\Travy\Schema\Concerns\Addable;
 use Signifly\Travy\Schema\Fields\Field;
 
 class SelectMulti extends Select
 {
+    use Addable;
+
     /**
      * The field's component.
      *
@@ -19,16 +22,4 @@ class SelectMulti extends Select
      * @var mixed
      */
     public $defaultValue = [];
-
-    /**
-     * The options to apply to the field type.
-     *
-     * @return void
-     */
-    public function applyOptions(): void
-    {
-        $this->withProps([
-            'values' => $this->attribute,
-        ]);
-    }
 }
