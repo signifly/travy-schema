@@ -2,15 +2,15 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
-use Signifly\Travy\Schema\Fields\ListTooltip;
+use Signifly\Travy\Schema\Fields\ItemListTooltip;
 use Signifly\Travy\Schema\Tests\TestCase;
 
-class ListTooltipTest extends TestCase
+class ItemListTooltipTest extends TestCase
 {
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = ListTooltip::make('Products')
+        $field = ItemListTooltip::make('Products')
             ->link('/products/{id}')
             ->label('name');
 
@@ -18,7 +18,7 @@ class ListTooltipTest extends TestCase
             'name' => 'Products',
             'attribute' => 'products',
             'fieldType' => [
-                'id' => 'list-tooltip',
+                'id' => 'item-list-tooltip',
                 'props' => [
                     'items' => [
                         '@scope' => 'products',

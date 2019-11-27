@@ -2,14 +2,14 @@
 
 namespace Signifly\Travy\Schema\Fields;
 
-class ListTooltip extends Field
+class ItemListTooltip extends Field
 {
     /**
      * The field's component.
      *
      * @var string
      */
-    public $component = 'list-tooltip';
+    public $component = 'item-list-tooltip';
 
     /**
      * Set the label prop.

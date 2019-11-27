@@ -12,13 +12,6 @@ class Text extends Field
     public $component = 'text';
 
     /**
-     * Indicates if the field should be linkable.
-     *
-     * @var bool
-     */
-    public $linkable = true;
-
-    /**
      * Set the align prop.
      *
      * @param  string $align
@@ -28,18 +21,6 @@ class Text extends Field
     public function align(string $align, bool $mapped = false): self
     {
         return $this->withProps(compact('align'), $mapped);
-    }
-
-    /**
-     * Use as input.
-     *
-     * @return self
-     */
-    public function asInput(): self
-    {
-        $this->component = 'input-text';
-
-        return $this;
     }
 
     /**
@@ -101,42 +82,12 @@ class Text extends Field
     }
 
     /**
-     * Set the type prop.
-     *
-     * @param  string $type
-     * @param  bool $mapped
-     * @return self
-     */
-    public function type(string $type, bool $mapped = false): self
-    {
-        return $this->withProps(compact('type'), $mapped);
-    }
-
-    /**
-     * Set the unit prop.
-     *
-     * @param  string $unit
-     * @return self
-     */
-    public function unit(string $unit, bool $mapped = false): self
-    {
-        return $this->withProps(compact('unit'), $mapped);
-    }
-
-    /**
      * The options to apply to the field type.
      *
      * @return void
      */
     public function applyOptions(): void
     {
-        if ($this->component == 'text') {
-            $this->withProps(['text' => $this->attribute]);
-            $this->forgetProp(['type', 'unit']);
-        }
-
-        if (in_array($this->component, ['input-text', 'input-number'])) {
-            $this->withProps(['value' => $this->attribute]);
-        }
+        $this->setProp('text', $this->attribute);
     }
 }

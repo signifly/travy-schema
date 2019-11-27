@@ -9,7 +9,7 @@ class ItemList extends Field
      *
      * @var string
      */
-    public $component = 'list';
+    public $component = 'item-list';
 
     /**
      * Set the label prop.

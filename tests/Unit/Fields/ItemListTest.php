@@ -18,7 +18,7 @@ class ItemListTest extends TestCase
             'name' => 'Products',
             'attribute' => 'products',
             'fieldType' => [
-                'id' => 'list',
+                'id' => 'item-list',
                 'props' => [
                     'items' => [
                         '@scope' => 'products',

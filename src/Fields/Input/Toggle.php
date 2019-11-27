@@ -11,7 +11,7 @@ class Toggle extends Field
      *
      * @var string
      */
-    public $component = 'input-switch';
+    public $component = 'input-toggle';
 
     /**
      * The default value for the field.

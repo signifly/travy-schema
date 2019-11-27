@@ -2,7 +2,7 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
-use Signifly\Travy\Schema\Fields\Text;
+use Signifly\Travy\Schema\Fields\Input\Text;
 use Signifly\Travy\Schema\Modal;
 use Signifly\Travy\Schema\Tests\TestCase;
 
@@ -14,7 +14,7 @@ class ModalTest extends TestCase
         $action = Modal::make('Edit')
             ->endpoint('some_url')
             ->fields([
-                Text::make('Name')->asInput(),
+                Text::make('Name'),
             ]);
 
         $expected = [
