@@ -4,9 +4,8 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Signifly\Travy\Schema\Concerns\WithModifiers;
-use Signifly\Travy\Schema\Fields\Text;
-use Signifly\Travy\Schema\Index;
+use Signifly\Travy\Schema\Tests\Support\Index\ModifierShopIndex;
+use Signifly\Travy\Schema\Tests\Support\Index\ShopIndex;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class IndexTest extends TestCase
@@ -49,36 +48,5 @@ class IndexTest extends TestCase
 
         $this->assertEquals('Shops', Arr::get($schema, 'pageTitle'));
         $this->assertEquals('Welcome back, {name}', Arr::get($schema, 'hero.title'));
-    }
-}
-
-class ShopIndex extends Index
-{
-    public function pageTitle(): string
-    {
-        return 'Shops';
-    }
-
-    public function hero(): array
-    {
-        return [
-            'title' => 'Welcome back, {name}',
-            'subtitle' => 'Lorem ipsum bla bla bla bla',
-        ];
-    }
-
-    public function tabs(): array
-    {
-        return [];
-    }
-}
-
-class ModifierShopIndex extends ShopIndex implements WithModifiers
-{
-    public function modifiers(): array
-    {
-        return [
-            Text::make('Shop')->asInput(),
-        ];
     }
 }
