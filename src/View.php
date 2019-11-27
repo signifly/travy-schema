@@ -10,10 +10,6 @@ abstract class View extends Definition implements Contract, WithEndpoint
 {
     use AppliesConcerns;
 
-    abstract public function pageTitle(): string;
-
-    abstract public function hero(): array;
-
     public function toArray()
     {
         $schema = new Schema([

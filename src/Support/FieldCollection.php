@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Support;
 
 use Illuminate\Support\Collection;
+use Signifly\Travy\Schema\Fields\Field;
 
 class FieldCollection extends Collection
 {
@@ -14,7 +15,7 @@ class FieldCollection extends Collection
     public function toData(): array
     {
         return $this
-            ->mapWithKeys(function ($field) {
+            ->mapWithKeys(function (Field $field) {
                 return [$field->attribute => $field->defaultValue ?? ''];
             })
             ->toArray();

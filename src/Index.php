@@ -9,12 +9,6 @@ abstract class Index extends Definition implements Contract
 {
     use AppliesConcerns;
 
-    abstract public function pageTitle(): string;
-
-    abstract public function hero(): array;
-
-    abstract public function tabs(): array;
-
     public function toSchema(): Schema
     {
         $schema = new Schema([
