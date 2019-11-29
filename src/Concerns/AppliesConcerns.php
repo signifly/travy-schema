@@ -58,7 +58,10 @@ trait AppliesConcerns
 
     protected function applyWithFilters(Schema $schema): void
     {
-        $schema->set('filters', $this->filters());
+        $filters = FieldCollection::make($this->filters());
+
+        $schema->set('filters.data', $filters->toData());
+        $schema->set('filters.fields', $filters->jsonSerialize());
     }
 
     protected function applyWithModifiers(Schema $schema): void
