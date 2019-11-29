@@ -2,11 +2,14 @@
 
 namespace Signifly\Travy\Schema;
 
-use Illuminate\Support\Arr;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
+use Signifly\Travy\Schema\Concerns\Instantiable;
 
 class Endpoint implements Arrayable
 {
+    use Instantiable;
+
     /** @var array */
     protected $payload = [];
 

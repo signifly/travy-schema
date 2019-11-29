@@ -80,4 +80,9 @@ trait AppliesConcerns
     {
         $schema->set('filters.search.placeholder', $this->searchPlaceholder());
     }
+
+    protected function applyWithSorting(Schema $schema): void
+    {
+        $schema->set('sort', $this->sort());
+    }
 }
