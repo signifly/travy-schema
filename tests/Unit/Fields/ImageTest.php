@@ -74,4 +74,27 @@ class ImageTest extends TestCase
         ];
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_override_fit_prop_as_mapped()
+    {
+        $field = Image::make('Image', 'src')
+            ->size('100%', '300px')
+            ->fit('fit', true);
+
+        $expected = [
+            'name' => 'Image',
+            'attribute' => 'src',
+            'fieldType' => [
+                'id' => 'image',
+                'props' => [
+                    'src' => 'src',
+                    '_width' => '100%',
+                    '_height' => '300px',
+                    'fit' => 'fit',
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }
