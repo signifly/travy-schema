@@ -2,7 +2,6 @@
 
 namespace Signifly\Travy\Schema;
 
-use Illuminate\Support\Arr;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\HasActions;
 use Signifly\Travy\Schema\Concerns\Instantiable;
@@ -78,20 +77,24 @@ class Batch implements JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        $data = [
+        $schema = new Schema([
             'selectedOptions' => [
                 'label' => $this->attribute,
-                'link' => $this->link,
             ],
-            'sequential' => [
-                'url' => $this->sequential ?? $this->link,
-            ],
-        ];
+        ]);
 
-        if ($this->hasActions()) {
-            Arr::set($data, 'bulk.actions', $this->preparedActions());
+        if ($link = $this->link) {
+            $schema->set('selectedOptions.link', $link);
         }
 
-        return $data;
+        if ($sequential = $this->sequential ?? $this->link) {
+            $schema->set('sequential.url', $sequential);
+        }
+
+        if ($this->hasActions()) {
+            $schema->set('bulk.actions', $this->preparedActions());
+        }
+
+        return $schema->toArray();
     }
 }
