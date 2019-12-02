@@ -10,6 +10,9 @@ class Sort implements Arrayable, JsonSerializable
 {
     use Instantiable;
 
+    /** @var string */
+    protected $default;
+
     /** @var array */
     protected $items;
 
@@ -37,6 +40,19 @@ class Sort implements Arrayable, JsonSerializable
         return $this;
     }
 
+    /**
+     * Set the default sorting value.
+     *
+     * @param  string $value
+     * @return self
+     */
+    public function default(string $value): self
+    {
+        $this->default = $value;
+
+        return $this;
+    }
+
     public function jsonSerialize()
     {
         return $this->toArray();
@@ -44,8 +60,14 @@ class Sort implements Arrayable, JsonSerializable
 
     public function toArray()
     {
-        return [
+        $data = [
             'items' => $this->items,
         ];
+
+        if ($this->default) {
+            $data['default'] = $this->default;
+        }
+
+        return $data;
     }
 }
