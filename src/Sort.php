@@ -26,33 +26,6 @@ class Sort implements Arrayable, JsonSerializable
         $this->items = $items;
     }
 
-    /**
-     * Add item to sorting.
-     *
-     * @param string       $label
-     * @param string       $value
-     * @param bool $manual
-     */
-    public function addItem(string $label, string $value, bool $manual = false): self
-    {
-        $this->items[] = compact('label', 'value', 'manual');
-
-        return $this;
-    }
-
-    /**
-     * Set the default sorting value.
-     *
-     * @param  string $value
-     * @return self
-     */
-    public function default(string $value): self
-    {
-        $this->default = $value;
-
-        return $this;
-    }
-
     public function jsonSerialize()
     {
         return $this->toArray();
@@ -60,12 +33,14 @@ class Sort implements Arrayable, JsonSerializable
 
     public function toArray()
     {
+        $items = collect($this->items);
+
         $data = [
-            'items' => $this->items,
+            'items' => $items->jsonSerialize(),
         ];
 
-        if ($this->default) {
-            $data['default'] = $this->default;
+        if ($default = $items->filter->isDefault()->first()) {
+            $data['default'] = $default->value();
         }
 
         return $data;
