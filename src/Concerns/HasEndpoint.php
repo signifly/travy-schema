@@ -21,7 +21,7 @@ trait HasEndpoint
      * Set the endpoint of the button-action.
      *
      * @param  string $url
-     * @param string|\Closure|null $method
+     * @param  string|\Closure|null $method
      * @return self
      */
     public function endpoint(string $url, $method = null): self
@@ -43,6 +43,16 @@ trait HasEndpoint
         $this->endpoint = $endpoint;
 
         return $this;
+    }
+
+    /**
+     * Get the endpoint.
+     *
+     * @return \Signifly\Travy\Schema\Endpoint
+     */
+    public function getEndpoint(): Endpoint
+    {
+        return $this->endpoint;
     }
 
     /**

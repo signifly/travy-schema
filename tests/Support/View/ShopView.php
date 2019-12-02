@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Support\View;
 
 use Signifly\Travy\Schema\Endpoint;
+use Signifly\Travy\Schema\Hero;
 use Signifly\Travy\Schema\Tab;
 use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
 use Signifly\Travy\Schema\View;
@@ -14,12 +15,9 @@ class ShopView extends View
         return 'Shop {name}';
     }
 
-    public function hero(): array
+    public function hero(): Hero
     {
-        return [
-            'title' => '{name}',
-            'subtitle' => 'Lorem ipsum bla bla bla bla',
-        ];
+        return Hero::make('{name}', 'Lorem ipsum bla bla bla bla');
     }
 
     public function tabs(): array

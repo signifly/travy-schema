@@ -2,6 +2,7 @@
 
 namespace Signifly\Travy\Schema\Tests\Support\Index;
 
+use Signifly\Travy\Schema\Hero;
 use Signifly\Travy\Schema\Index;
 
 class ShopIndex extends Index
@@ -11,12 +12,9 @@ class ShopIndex extends Index
         return 'Shops';
     }
 
-    public function hero(): array
+    public function hero(): Hero
     {
-        return [
-            'title' => 'Welcome back, {name}',
-            'subtitle' => 'Lorem ipsum bla bla bla bla',
-        ];
+        return Hero::make('Welcome back, {name}', 'Lorem ipsum bla bla bla bla');
     }
 
     public function tabs(): array
