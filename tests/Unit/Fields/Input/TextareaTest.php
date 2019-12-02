@@ -18,7 +18,7 @@ class TextareaTest extends TestCase
             'fieldType' => [
                 'id' => 'input-textarea',
                 'props' => [
-                    'text' => 'content',
+                    'value' => 'content',
                 ],
             ],
         ];
@@ -37,7 +37,7 @@ class TextareaTest extends TestCase
             'fieldType' => [
                 'id' => 'input-textarea',
                 'props' => [
-                    'text' => 'content',
+                    'value' => 'content',
                     '_disabled' => true,
                 ],
             ],

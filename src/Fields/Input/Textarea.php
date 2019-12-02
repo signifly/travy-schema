@@ -20,6 +20,6 @@ class Textarea extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps(['text' => $this->attribute]);
+        $this->withProps(['value' => $this->attribute]);
     }
 }

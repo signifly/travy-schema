@@ -10,12 +10,25 @@ abstract class View extends Definition implements Contract, WithEndpoint
 {
     use AppliesConcerns;
 
+    protected function preparedTabs(): array
+    {
+        return collect($this->tabs())
+            ->map(function (Tab $tab) {
+                if (! $tab->hasEndpoint()) {
+                    $tab->setEndpoint($this->endpoint());
+                }
+
+                return $tab;
+            })
+            ->all();
+    }
+
     public function toArray()
     {
         $schema = new Schema([
             'pageTitle' => $this->pageTitle(),
             'hero' => $this->hero(),
-            'tabs' => $this->tabs(),
+            'tabs' => $this->preparedTabs(),
         ]);
 
         $this->applyConcerns($schema);

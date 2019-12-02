@@ -40,9 +40,7 @@ trait HasEndpoint
             $endpoint->usingMethod($method);
         }
 
-        $this->endpoint = $endpoint;
-
-        return $this;
+        return $this->setEndpoint($endpoint);
     }
 
     /**
@@ -63,5 +61,17 @@ trait HasEndpoint
     public function hasEndpoint(): bool
     {
         return ! empty($this->endpoint);
+    }
+
+    /**
+     * Set the endpoint.
+     *
+     * @param \Signifly\Travy\Schema\Endpoint $endpoint
+     */
+    public function setEndpoint(Endpoint $endpoint): self
+    {
+        $this->endpoint = $endpoint;
+
+        return $this;
     }
 }

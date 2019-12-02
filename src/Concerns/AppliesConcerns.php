@@ -84,6 +84,11 @@ trait AppliesConcerns
         $schema->set('filters.search.placeholder', $this->searchPlaceholder());
     }
 
+    protected function applyWithSidebar(Schema $schema): void
+    {
+        $schema->set('sidebar', $this->sidebar());
+    }
+
     protected function applyWithSorting(Schema $schema): void
     {
         $schema->set('sort', $this->sort());
