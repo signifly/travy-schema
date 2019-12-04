@@ -32,6 +32,13 @@ abstract class Action implements Arrayable, JsonSerializable
     protected $icon;
 
     /**
+     * The button size of the action.
+     *
+     * @var string
+     */
+    protected $size;
+
+    /**
      * The definition for the action type.
      *
      * @var array
@@ -63,6 +70,19 @@ abstract class Action implements Arrayable, JsonSerializable
     abstract public function actionType(): array;
 
     /**
+     * Set the size of the action.
+     *
+     * @param  string $size
+     * @return self
+     */
+    public function size(string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
      * Prepare the action for JSON serialization.
      *
      * @return array
@@ -85,6 +105,10 @@ abstract class Action implements Arrayable, JsonSerializable
             'icon' => $this->icon,
             'actionType' => $this->actionType(),
         ]);
+
+        if ($this->size) {
+            $schema->set('size', $this->size);
+        }
 
         return $schema->toArray();
     }

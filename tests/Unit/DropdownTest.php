@@ -48,4 +48,47 @@ class DropdownTest extends TestCase
         ];
         $this->assertEquals($expected, $action->jsonSerialize());
     }
+
+    /** @test */
+    public function it_sets_the_size_of_the_action_button()
+    {
+        $action = Dropdown::make('More')
+            ->size('mini')
+            ->actions([
+                $popup = Popup::make('Delete')
+                    ->endpoint('some_url', 'delete'),
+            ]);
+
+        $expected = [
+            'name' => 'More',
+            'status' => 'primary',
+            'icon' => null,
+            'size' => 'mini',
+            'actionType' => [
+                'id' => 'dropdown',
+                'props' => [
+                    'actions' => [
+                        [
+                            'name' => 'Delete',
+                            'status' => 'primary',
+                            'icon' => null,
+                            'actionType' => [
+                                'id' => 'popup',
+                                'props' => [
+                                    'title' => 'Delete',
+                                    'text' => $popup->defaultText(),
+                                    'endpoint' => [
+                                        'url' => 'some_url',
+                                        'method' => 'delete',
+                                    ],
+                                    'payload' => $this->payload ?? (object) [],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $action->jsonSerialize());
+    }
 }
