@@ -13,7 +13,7 @@ class Hero implements Arrayable, JsonSerializable
     /** @var string */
     protected $title;
 
-    /** @var string|null  */
+    /** @var string|null */
     protected $subtitle;
 
     public function __construct(string $title, ?string $subtitle = null)
