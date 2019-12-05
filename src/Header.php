@@ -52,7 +52,7 @@ class Header implements Arrayable, JsonSerializable
         return $schema->toArray();
     }
 
-    public function jsonSerailize()
+    public function jsonSerialize()
     {
         return $this->toArray();
     }

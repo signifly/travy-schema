@@ -3,10 +3,9 @@
 namespace Signifly\Travy\Schema;
 
 use Signifly\Travy\Schema\Concerns\AppliesConcerns;
-use Signifly\Travy\Schema\Concerns\WithEndpoint;
 use Signifly\Travy\Schema\Contracts\View as Contract;
 
-abstract class View extends Definition implements Contract, WithEndpoint
+abstract class View extends Definition implements Contract
 {
     use AppliesConcerns;
 

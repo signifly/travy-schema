@@ -37,6 +37,17 @@ class Schema implements ArrayAccess, Arrayable, JsonSerializable
     }
 
     /**
+     * Forget an attribute from the Schema instance.
+     *
+     * @param  string $key
+     * @return void
+     */
+    public function forget($key)
+    {
+        return Arr::forget($this->attributes, $key);
+    }
+
+    /**
      * Get an attribute from the Schema instance.
      *
      * @param  string  $key
@@ -53,6 +64,7 @@ class Schema implements ArrayAccess, Arrayable, JsonSerializable
      *
      * @param string $key
      * @param mixed $value
+     * @return void
      */
     public function set($key, $value)
     {
