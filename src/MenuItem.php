@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
@@ -34,7 +35,7 @@ class MenuItem implements Arrayable, JsonSerializable
     public function __construct(string $name, ?string $url = null)
     {
         $this->name = $name;
-        $this->url = $url;
+        $this->url = $url ?? '/i/'.Str::slug($name);
     }
 
     /**
