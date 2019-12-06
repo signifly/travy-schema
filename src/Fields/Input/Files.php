@@ -14,11 +14,11 @@ class Files extends Field
     public $component = 'input-files';
 
     /**
-     * Indicates if the element should be shown on the index view.
+     * The default value for the field.
      *
-     * @var bool
+     * @var mixed
      */
-    public $showOnIndex = false;
+    public $defaultValue = [];
 
     /**
      * Set the fileTypes prop.
