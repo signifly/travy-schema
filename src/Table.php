@@ -9,12 +9,23 @@ abstract class Table extends Definition implements Contract
 {
     use AppliesConcerns;
 
+    /**
+     * The table link.
+     *
+     * @var string
+     */
+    protected $link;
+
     public function toSchema(): Schema
     {
         $schema = new Schema([
             'columns' => $this->columns(),
             'endpoint' => $this->endpoint(),
         ]);
+
+        if ($this->link) {
+            $schema->set('link', $link);
+        }
 
         $this->applyConcerns($schema);
 
