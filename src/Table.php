@@ -24,7 +24,7 @@ abstract class Table extends Definition implements Contract
         ]);
 
         if ($this->link) {
-            $schema->set('link', $link);
+            $schema->set('link', $this->link);
         }
 
         $this->applyConcerns($schema);
