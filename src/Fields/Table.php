@@ -12,14 +12,14 @@ class Table extends Field
     public $component = 'table';
 
     /**
-     * Set the columnsData prop.
+     * Set the value prop.
      *
-     * @param  array|string  $data
+     * @param  array|string  $value
      * @return self
      */
-    public function data($data, bool $mapped = true): self
+    public function value($value, bool $mapped = true): self
     {
-        return $this->setProp('columnsData', $data, $mapped);
+        return $this->setProp('value', $value, $mapped);
     }
 
     /**
@@ -40,8 +40,8 @@ class Table extends Field
      */
     public function applyOptions(): void
     {
-        if ($this->missingProp('columnsData')) {
-            $this->setProp('columnsData', $this->attribute);
+        if ($this->missingProp('value')) {
+            $this->setProp('value', $this->attribute);
         }
     }
 }

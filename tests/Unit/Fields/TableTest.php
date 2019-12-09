@@ -34,7 +34,7 @@ class TableTest extends TestCase
                             ],
                         ],
                     ],
-                    'columnsData' => 'products',
+                    'value' => 'products',
                 ],
             ],
         ];
