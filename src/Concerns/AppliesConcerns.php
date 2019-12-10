@@ -28,7 +28,7 @@ trait AppliesConcerns
 
     protected function applyWithActivity(Schema $schema): void
     {
-        $schema->set('activity', (object) []);
+        $schema->set('activity', $this->activity());
     }
 
     protected function applyWithBatchActions(Schema $schema): void
