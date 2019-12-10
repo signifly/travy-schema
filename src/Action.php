@@ -85,6 +85,19 @@ abstract class Action implements Arrayable, JsonSerializable
     }
 
     /**
+     * Hide action on given constraint.
+     *
+     * @param  string $key
+     * @param  mixed $value
+     * @param  string $operator
+     * @return self
+     */
+    public function onSubmit(string $onSubmit): self
+    {
+        return $this->withMeta(compact('onSubmit'));
+    }
+
+    /**
      * Set the size of the action.
      *
      * @param  string $size
@@ -92,7 +105,9 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function size(string $size): self
     {
-        return $this->withMeta(compact('size'));
+        $this->size = $size;
+
+        return $this;
     }
 
     /**
@@ -112,12 +127,16 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function toArray()
     {
-        $schema = new Schema(array_merge([
+        $schema = new Schema([
             'name' => $this->name,
             'status' => $this->status,
             'icon' => $this->icon,
-            'actionType' => $this->actionType(),
-        ], $this->meta()));
+            'actionType' => array_merge($this->actionType(), $this->meta()),
+        ]);
+
+        if ($this->size) {
+            $schema->set('size', $this->size);
+        }
 
         return $schema->toArray();
     }
