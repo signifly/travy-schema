@@ -19,8 +19,18 @@ class ButtonAction extends Field
      * @param  Action $action
      * @return self
      */
-    public function action(Action $action): self
+    public function action(Action $action, bool $mapped = false): self
     {
-        return $this->withProps(['_action' => $action->jsonSerialize()]);
+        return $this->setProp('action', $action->jsonSerialize(), $mapped);
+    }
+
+    /**
+     * The options to apply to the field type.
+     *
+     * @return void
+     */
+    public function applyOptions(): void
+    {
+        $this->setProp('data', '$root');
     }
 }
