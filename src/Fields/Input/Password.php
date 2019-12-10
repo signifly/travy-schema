@@ -14,12 +14,28 @@ class Password extends Field
     public $component = 'input-password';
 
     /**
+     * Set the autocomplete prop.
+     *
+     * @param  string       $autocomplete
+     * @param  bool $mapped
+     * @return self
+     */
+    public function autocomplete(string $autocomplete, bool $mapped = false): self
+    {
+        return $this->setProp('autocomplete', $autocomplete, $mapped);
+    }
+
+    /**
      * The options to apply to the field type.
      *
      * @return void
      */
     public function applyOptions(): void
     {
+        if ($this->missingProp('autocomplete')) {
+            $this->autocomplete('new-password');
+        }
+
         $this->withProps(['value' => $this->attribute]);
     }
 }
