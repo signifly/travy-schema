@@ -31,20 +31,8 @@ class SelectSearch extends Field
     {
         return [
             'dataWrap' => 'data',
-            'itemKey' => 'data',
             'value' => 'id',
         ];
-    }
-
-    /**
-     * Set the itemKey option.
-     *
-     * @param  string $itemKey
-     * @return self
-     */
-    public function itemKey(string $itemKey): self
-    {
-        return $this->withOptions(compact('itemKey'));
     }
 
     /**

@@ -5,7 +5,6 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Signifly\Travy\Schema\Fields\Input\Text;
-use Signifly\Travy\Schema\Fields\Sidebar;
 use Signifly\Travy\Schema\Tab;
 use Signifly\Travy\Schema\Tests\Support\View\ModifierShopView;
 use Signifly\Travy\Schema\Tests\Support\View\ShopView;
@@ -21,8 +20,6 @@ class ViewTest extends TestCase
 
         tap($view->jsonSerialize(), function ($data) {
             $this->assertCount(1, Arr::get($data, 'tabs'));
-            // $this->assertCount(1, Arr::get($data, 'sidebar'));
-            $this->assertEquals('some_url', Arr::get($data, 'endpoint.url'));
             $this->assertEquals('Shop {name}', Arr::get($data, 'pageTitle'));
         });
     }
@@ -36,7 +33,6 @@ class ViewTest extends TestCase
         tap($view->jsonSerialize(), function ($data) {
             $this->assertCount(1, Arr::get($data, 'tabs'));
             $this->assertCount(1, Arr::get($data, 'modifiers.fields'));
-            $this->assertEquals('some_url', Arr::get($data, 'endpoint.url'));
             $this->assertEquals('Shop {name}', Arr::get($data, 'pageTitle'));
         });
     }
@@ -59,7 +55,6 @@ class ViewTest extends TestCase
         tap($view->jsonSerialize(), function ($data) {
             $this->assertCount(1, Arr::get($data, 'tabs'));
             $this->assertEquals('some_url', Arr::get($data, 'tabs.0.definitions.endpoint.url'));
-            $this->assertEquals('some_url', Arr::get($data, 'endpoint.url'));
             $this->assertEquals('Shop {name}', Arr::get($data, 'pageTitle'));
         });
     }
