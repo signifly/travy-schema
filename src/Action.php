@@ -4,10 +4,12 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
+use Signifly\Travy\Schema\Concerns\HasMetaData;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
 abstract class Action implements Arrayable, JsonSerializable
 {
+    use HasMetaData;
     use Instantiable;
 
     /**
@@ -70,6 +72,19 @@ abstract class Action implements Arrayable, JsonSerializable
     abstract public function actionType(): array;
 
     /**
+     * Hide action on given constraint.
+     *
+     * @param  string $key
+     * @param  mixed $value
+     * @param  string $operator
+     * @return self
+     */
+    public function hide(string $key, $value, string $operator = 'eq'): self
+    {
+        return $this->withMeta(['hide' => compact('key', 'operator', 'value')]);
+    }
+
+    /**
      * Set the size of the action.
      *
      * @param  string $size
@@ -77,9 +92,7 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function size(string $size): self
     {
-        $this->size = $size;
-
-        return $this;
+        return $this->withMeta(compact('size'));
     }
 
     /**
@@ -99,16 +112,12 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function toArray()
     {
-        $schema = new Schema([
+        $schema = new Schema(array_merge([
             'name' => $this->name,
             'status' => $this->status,
             'icon' => $this->icon,
             'actionType' => $this->actionType(),
-        ]);
-
-        if ($this->size) {
-            $schema->set('size', $this->size);
-        }
+        ], $this->meta()));
 
         return $schema->toArray();
     }
