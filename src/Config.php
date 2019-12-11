@@ -8,12 +8,18 @@ abstract class Config extends Definition implements Contract
 {
     public function toArray()
     {
-        return Schema::make([
+        $schema = Schema::make([
             'frontpage' => $this->frontpage(),
             'header' => $this->header(),
             'locale' => $this->locale(),
             'theme' => $this->theme(),
             'title' => $this->title(),
-        ])->toArray();
+        ]);
+
+        if (isset($this->websocketUrl)) {
+            $schema->set('websockets', $this->websocketUrl);
+        }
+
+        return $schema->toArray();
     }
 }
