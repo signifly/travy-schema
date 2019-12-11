@@ -93,4 +93,9 @@ trait AppliesConcerns
     {
         $schema->set('sort', $this->sort());
     }
+
+    protected function applyWithWebsockets(Schema $schema): void
+    {
+        $schema->set('websockets', $this->websockets());
+    }
 }
