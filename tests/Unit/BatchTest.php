@@ -29,29 +29,27 @@ class BatchTest extends TestCase
     public function it_has_bulk_actions()
     {
         $batch = Batch::make('name', '/t/products/{id}')
-            ->actions([
+            ->action(
                 Popup::make('Delete selected items')
-                    ->endpoint(url('v1/admin/products/{id}')),
-            ]);
+                    ->endpoint(url('v1/admin/products/{id}'))
+            );
 
         $expected = [
             'bulk' => [
-                'actions' => [
-                    [
-                        'name' => 'Delete selected items',
-                        'status' => 'primary',
-                        'icon' => null,
-                        'actionType' => [
-                            'id' => 'popup',
-                            'props' => [
-                                'title' => 'Delete selected items',
-                                'text' => 'Are you sure? Please confirm this action.',
-                                'endpoint' => [
-                                    'url' => 'http://localhost/v1/admin/products/{id}',
-                                    'method' => 'post',
-                                ],
-                                'payload' => (object) [],
+                'action' => [
+                    'name' => 'Delete selected items',
+                    'status' => 'primary',
+                    'icon' => null,
+                    'actionType' => [
+                        'id' => 'popup',
+                        'props' => [
+                            'title' => 'Delete selected items',
+                            'text' => 'Are you sure? Please confirm this action.',
+                            'endpoint' => [
+                                'url' => 'http://localhost/v1/admin/products/{id}',
+                                'method' => 'post',
                             ],
+                            'payload' => (object) [],
                         ],
                     ],
                 ],

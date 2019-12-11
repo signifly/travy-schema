@@ -3,12 +3,10 @@
 namespace Signifly\Travy\Schema;
 
 use JsonSerializable;
-use Signifly\Travy\Schema\Concerns\HasActions;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
 class Batch implements JsonSerializable
 {
-    use HasActions;
     use Instantiable;
 
     /**
@@ -17,6 +15,13 @@ class Batch implements JsonSerializable
      * @var string
      */
     public $attribute;
+
+    /**
+     * The action name for the label.
+     *
+     * @var string
+     */
+    public $action;
 
     /**
      * The link for the sequential tooltip.
@@ -42,6 +47,19 @@ class Batch implements JsonSerializable
     {
         $this->attribute = $attribute;
         $this->link = $link;
+    }
+
+    /**
+     * Set the batch action.
+     *
+     * @param  Action $action
+     * @return self
+     */
+    public function action(Action $action)
+    {
+        $this->action = $action;
+
+        return $this;
     }
 
     /**
@@ -91,8 +109,8 @@ class Batch implements JsonSerializable
             $schema->set('sequential.url', $sequential);
         }
 
-        if ($this->hasActions()) {
-            $schema->set('bulk.actions', $this->preparedActions());
+        if ($this->action) {
+            $schema->set('bulk.action', $this->action);
         }
 
         return $schema->toArray();
