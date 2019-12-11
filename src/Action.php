@@ -92,9 +92,9 @@ abstract class Action implements Arrayable, JsonSerializable
      * @param  string $operator
      * @return self
      */
-    public function onSubmit(string $onSubmit): self
+    public function onSubmit(string $url): self
     {
-        return $this->withMeta(compact('onSubmit'));
+        return $this->withMeta(['onSubmit' => compact('url')]);
     }
 
     /**
