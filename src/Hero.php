@@ -16,10 +16,20 @@ class Hero implements Arrayable, JsonSerializable
     /** @var string|null */
     protected $subtitle;
 
+    /** @var array */
+    protected $breadcrumbs = [];
+
     public function __construct(string $title, ?string $subtitle = null)
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
+    }
+
+    public function addBreadcrumb(string $name, ?string $url = null): self
+    {
+        $this->breadcrumbs[] = compact('name', 'url');
+
+        return $this;
     }
 
     public function jsonSerialize()
@@ -32,6 +42,7 @@ class Hero implements Arrayable, JsonSerializable
         return [
             'title' => $this->title,
             'subtitle' => $this->subtitle,
+            'breadcrumbs' => $this->breadcrumbs,
         ];
     }
 }
