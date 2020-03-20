@@ -21,6 +21,7 @@ class LinkTest extends TestCase
                 'id' => 'link',
                 'props' => [
                     'url' => 'some_url',
+                    'external' => false,
                 ],
             ],
         ];
