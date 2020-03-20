@@ -79,6 +79,11 @@ trait AppliesConcerns
         $schema->set('pagination', (object) []);
     }
 
+    protected function applyWithRow(Schema $schema): void
+    {
+        $schema->set('row', $this->row());
+    }
+
     protected function applyWithSearch(Schema $schema): void
     {
         $schema->set('filters.search.placeholder', $this->searchPlaceholder());

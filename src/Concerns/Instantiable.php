@@ -11,7 +11,7 @@ trait Instantiable
      * Create a new instance.
      *
      * @param  mixed $arguments
-     * @return self
+     * @return static
      */
     public static function make(...$arguments): self
     {
