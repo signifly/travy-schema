@@ -5,7 +5,6 @@ namespace Signifly\Travy\Schema\Concerns;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Signifly\Travy\Schema\Exceptions\InvalidPropsException;
-use Signifly\Travy\Schema\Support\UnmappedProp;
 
 /**
  * @internal

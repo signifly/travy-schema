@@ -9,8 +9,6 @@ use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
-use Signifly\Travy\Schema\Support\AttributeResolver;
-use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
 
 abstract class Field implements JsonSerializable

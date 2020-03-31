@@ -18,7 +18,7 @@ class DividerTest extends TestCase
             'fieldType' => [
                 'id' => 'divider',
                 'props' => [
-                    '_text' => 'Divider title',
+                    'text' => 'Divider title',
                 ],
             ],
         ];
