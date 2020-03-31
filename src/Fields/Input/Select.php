@@ -20,12 +20,11 @@ class Select extends Field
      * Set the items.
      *
      * @param  array  $items
-     * @param  bool $mapped
      * @return self
      */
-    public function items(array $items, bool $mapped = false): self
+    public function items(array $items): self
     {
-        return $this->setProp('entities', $items, $mapped);
+        return $this->setProp('entities', $items);
     }
 
     /**

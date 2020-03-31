@@ -17,12 +17,11 @@ class Password extends Field
      * Set the autocomplete prop.
      *
      * @param  string       $autocomplete
-     * @param  bool $mapped
      * @return self
      */
-    public function autocomplete(string $autocomplete, bool $mapped = false): self
+    public function autocomplete(string $autocomplete): self
     {
-        return $this->setProp('autocomplete', $autocomplete, $mapped);
+        return $this->setProp('autocomplete', $autocomplete);
     }
 
     /**

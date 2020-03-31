@@ -15,24 +15,22 @@ class DateRangePicker extends DatePicker
      * Set the dateEnd prop.
      *
      * @param  string $key
-     * @param  bool $mapped
      * @return self
      */
-    public function end(string $key, bool $mapped = true): self
+    public function end(string $key): self
     {
-        return $this->setProp('dateEnd', $key, $mapped);
+        return $this->setProp('dateEnd', $key);
     }
 
     /**
      * Set the dateStart prop.
      *
      * @param  string $key
-     * @param  bool $mapped
      * @return self
      */
-    public function start(string $key, bool $mapped = true): self
+    public function start(string $key): self
     {
-        return $this->setProp('dateStart', $key, $mapped);
+        return $this->setProp('dateStart', $key);
     }
 
     /**

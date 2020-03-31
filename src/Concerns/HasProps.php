@@ -29,7 +29,7 @@ trait HasProps
      */
     public function forgetProp($key)
     {
-        return Arr::forget($this->props, $key);
+        Arr::forget($this->props, $key);
     }
 
     /**
@@ -82,9 +82,9 @@ trait HasProps
      * @param mixed $value
      * @return self
      */
-    public function setProp(string $key, $value, bool $mapped = true): self
+    public function setProp(string $key, $value): self
     {
-        Arr::set($this->props, $key, $mapped ? $value : new UnmappedProp($value));
+        Arr::set($this->props, $key, $value);
 
         return $this;
     }
@@ -95,18 +95,8 @@ trait HasProps
      * @param  array  $props
      * @return $this
      */
-    public function withProps(array $props, bool $mapped = true): self
+    public function withProps(array $props): self
     {
-        if ($mapped === false) {
-            foreach ($props as $key => $value) {
-                if ($value instanceof UnmappedProp) {
-                    continue;
-                }
-
-                $props[$key] = new UnmappedProp($value);
-            }
-        }
-
         $this->props = array_merge($this->props, $props);
 
         return $this;
@@ -114,6 +104,10 @@ trait HasProps
 
     public function guardAgainstInvalidProps(array $props)
     {
+        if (empty($this->propsValidationRules)) {
+            return;
+        }
+
         $validator = Validator::make($props, $this->propsValidationRules);
 
         if ($validator->fails()) {

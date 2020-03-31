@@ -71,11 +71,11 @@ class ImagePicker extends Image
      * @param  string $key
      * @return self
      */
-    public function url(string $key, bool $mapped = true): self
+    public function url(string $key): self
     {
         return $this
             ->withOptions(['url' => $key])
-            ->setProp('url', $key, $mapped);
+            ->setProp('url', $key);
     }
 
     /**
@@ -101,6 +101,6 @@ class ImagePicker extends Image
         }
 
         $this->setProp('id', $this->attribute);
-        $this->setProp('entities', $this->options(), false);
+        $this->setProp('entities', $this->options());
     }
 }

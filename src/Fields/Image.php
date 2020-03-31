@@ -15,12 +15,11 @@ class Image extends Field
      * Set the fit prop.
      *
      * @param  string $fit It should be either `contain` or `cover`.
-     * @param  bool $mapped
      * @return self
      */
-    public function fit(string $fit, bool $mapped = false): self
+    public function fit(string $fit): self
     {
-        return $this->withProps(compact('fit'), $mapped);
+        return $this->withProps(compact('fit'));
     }
 
     /**
@@ -28,12 +27,11 @@ class Image extends Field
      *
      * @param  string $width
      * @param  string $height
-     * @param  bool $mapped
      * @return self
      */
-    public function size(string $width = '200px', string $height = '200px', bool $mapped = false): self
+    public function size(string $width = '200px', string $height = '200px'): self
     {
-        return $this->withProps(compact('width', 'height'), $mapped);
+        return $this->withProps(compact('width', 'height'));
     }
 
     /**

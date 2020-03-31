@@ -30,8 +30,8 @@ class Divider extends Field
      * @param  string $text
      * @return self
      */
-    public function text(string $text, bool $mapped = false): self
+    public function text(string $text): self
     {
-        return $this->setProp('text', $text, $mapped);
+        return $this->setProp('text', $text);
     }
 }

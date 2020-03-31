@@ -15,24 +15,22 @@ class ItemListTooltip extends Field
      * Set the label prop.
      *
      * @param  string $label
-     * @param  bool $mapped
      * @return self
      */
-    public function label(string $label, bool $mapped = true): self
+    public function label(string $label): self
     {
-        return $this->setProp('items.label', $label, $mapped);
+        return $this->setProp('items.label', $label);
     }
 
     /**
      * Set the link prop.
      *
      * @param  string $link
-     * @param  bool $mapped
      * @return self
      */
-    public function link(string $link, bool $mapped = false): self
+    public function link(string $link): self
     {
-        return $this->setProp('items.link', $link, $mapped);
+        return $this->setProp('items.link', $link);
     }
 
     /**

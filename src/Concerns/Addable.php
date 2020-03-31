@@ -11,11 +11,10 @@ trait Addable
      * Set the addable prop.
      *
      * @param  bool $value
-     * @param  bool $mapped
      * @return self
      */
-    public function addable($value = true, bool $mapped = false): self
+    public function addable($value = true): self
     {
-        return $this->setProp('addable', $value, $mapped);
+        return $this->setProp('addable', $value);
     }
 }

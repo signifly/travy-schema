@@ -26,9 +26,9 @@ class Files extends Field
      * @param  string $key
      * @return self
      */
-    public function fileTypes(string $key, bool $mapped = false): self
+    public function fileTypes(string $key): self
     {
-        return $this->setProp('fileTypes', $key, $mapped);
+        return $this->setProp('fileTypes', $key);
     }
 
     /**
@@ -37,9 +37,9 @@ class Files extends Field
      * @param  int $limit
      * @return self
      */
-    public function limit(int $limit, bool $mapped = false): self
+    public function limit(int $limit): self
     {
-        return $this->setProp('limit', $limit, $mapped);
+        return $this->setProp('limit', $limit);
     }
 
     /**
@@ -48,9 +48,9 @@ class Files extends Field
      * @param  bool $multiple
      * @return self
      */
-    public function multiple(bool $multiple = true, bool $mapped = false): self
+    public function multiple(bool $multiple = true): self
     {
-        return $this->setProp('multiple', $multiple, $mapped);
+        return $this->setProp('multiple', $multiple);
     }
 
     /**
@@ -59,9 +59,9 @@ class Files extends Field
      * @param  string $key
      * @return self
      */
-    public function url(string $key, bool $mapped = false): self
+    public function url(string $key): self
     {
-        return $this->setProp('url', $key, $mapped);
+        return $this->setProp('url', $key);
     }
 
     /**

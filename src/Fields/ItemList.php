@@ -15,24 +15,24 @@ class ItemList extends Field
      * Set the label prop.
      *
      * @param  string $label
-     * @param  bool $mapped
+     *
      * @return self
      */
-    public function label(string $label, bool $mapped = true): self
+    public function label(string $label): self
     {
-        return $this->setProp('items.label', $label, $mapped);
+        return $this->setProp('items.label', $label);
     }
 
     /**
      * Set the value prop.
      *
      * @param  string $value
-     * @param  bool $mapped
+     *
      * @return self
      */
-    public function value(string $value, bool $mapped = true): self
+    public function value(string $value): self
     {
-        return $this->setProp('items.value', $value, $mapped);
+        return $this->setProp('items.value', $value);
     }
 
     /**

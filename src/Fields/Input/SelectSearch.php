@@ -80,6 +80,6 @@ class SelectSearch extends Field
         }
 
         $this->setProp('value', $this->attribute);
-        $this->setProp('entities', $this->options(), false);
+        $this->setProp('entities', $this->options());
     }
 }

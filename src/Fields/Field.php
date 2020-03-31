@@ -12,7 +12,6 @@ use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\AttributeResolver;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
-use Signifly\Travy\Schema\Width;
 
 abstract class Field implements JsonSerializable
 {
@@ -20,6 +19,8 @@ abstract class Field implements JsonSerializable
     use HasScopes;
     use HasMetaData;
     use Instantiable;
+
+    const SINGLE_ATTRIBUTE_REGEX = '/^{[^{]+}$/g';
 
     /**
      * The field's component.
@@ -29,18 +30,25 @@ abstract class Field implements JsonSerializable
     public $component;
 
     /**
-     * The displayable name of the field.
+     * The displayable name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * The attribute / column name of the field.
+     * The attribute / column name.
      *
-     * @var string|UnmappedProp
+     * @var string
      */
     public $attribute;
+
+    /**
+     * The attribute to use for errors.
+     *
+     * @var string|null
+     */
+    public $errorAttribute;
 
     /**
      * The default value for the field.
@@ -69,7 +77,7 @@ abstract class Field implements JsonSerializable
      */
     protected function setAttribute($name, $attribute = null): void
     {
-        $this->attribute = $attribute ?? str_replace(' ', '_', Str::lower($name));
+        $this->attribute = $attribute ?? '{'.str_replace([' '], '_', Str::lower($name)).'}';
     }
 
     /**
@@ -128,7 +136,7 @@ abstract class Field implements JsonSerializable
      */
     public function disabled($value = true): self
     {
-        return $this->setProp('disabled', $value, false);
+        return $this->setProp('disabled', $value);
     }
 
     /**
@@ -143,7 +151,7 @@ abstract class Field implements JsonSerializable
     }
 
     /**
-     * Set the default value of the field.
+     * Set the default value.
      *
      * @param  mixed $value
      * @return self
@@ -164,6 +172,17 @@ abstract class Field implements JsonSerializable
     public function description(string $text): self
     {
         return $this->withMeta(['description' => $text]);
+    }
+
+    /**
+     * Specify a hint.
+     *
+     * @param string $hint
+     * @return $this
+     */
+    public function hint(string $hint): self
+    {
+        return $this->withMeta(compact('hint'));
     }
 
     /**
@@ -197,7 +216,6 @@ abstract class Field implements JsonSerializable
     {
         $props = $this->props();
 
-        // Guard against invalid props *before* transforming (mapped/unmapped and scoping) them...
         $this->guardAgainstInvalidProps($props);
 
         return Schema::make([
@@ -219,7 +237,7 @@ abstract class Field implements JsonSerializable
 
         return array_merge([
             'name' => $this->name,
-            'attribute' => (new AttributeResolver())->resolve($this->attribute, $this->name ?? ''),
+            'attribute' => $this->errorAttribute ?? str_replace(['{', '}'], '', $this->attribute),
             'fieldType' => $this->fieldType(),
         ], $this->meta());
     }
@@ -232,8 +250,6 @@ abstract class Field implements JsonSerializable
      */
     protected function transformProps(array $props): array
     {
-        return (new PropsResolver())->resolve(
-            (new ScopesApplier())->apply($props, $this->scopes())
-        );
+        return (new ScopesApplier())->apply($props, $this->scopes());
     }
 }

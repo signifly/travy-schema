@@ -17,12 +17,11 @@ class Text extends Field
      * Set the type prop.
      *
      * @param  string $type
-     * @param  bool $mapped
      * @return self
      */
-    public function type(string $type, bool $mapped = false): self
+    public function type(string $type): self
     {
-        return $this->withProps(compact('type'), $mapped);
+        return $this->withProps(compact('type'));
     }
 
     /**
@@ -31,9 +30,9 @@ class Text extends Field
      * @param  string $unit
      * @return self
      */
-    public function unit(string $unit, bool $mapped = false): self
+    public function unit(string $unit): self
     {
-        return $this->withProps(compact('unit'), $mapped);
+        return $this->withProps(compact('unit'));
     }
 
     /**

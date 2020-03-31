@@ -15,48 +15,44 @@ class ProgressSet extends Field
      * Set the status prop (alias for status).
      *
      * @param  string $key
-     * @param  bool $mapped
      * @return self
      */
-    public function color(string $key, bool $mapped = true): self
+    public function color(string $key): self
     {
-        return $this->status($key, $mapped);
+        return $this->status($key);
     }
 
     /**
      * Set the percentage prop.
      *
      * @param  string $percentage
-     * @param  bool $mapped
      * @return self
      */
-    public function percentage(string $percentage, bool $mapped = true): self
+    public function percentage(string $percentage): self
     {
-        return $this->setProp('items.percentage', $percentage, $mapped);
+        return $this->setProp('items.percentage', $percentage);
     }
 
     /**
      * Set the status prop.
      *
      * @param  string $key
-     * @param  bool $mapped
      * @return self
      */
-    public function status(string $key, bool $mapped = true): self
+    public function status(string $key): self
     {
-        return $this->setProp('items.status', $key, $mapped);
+        return $this->setProp('items.status', $key);
     }
 
     /**
      * Set the title prop.
      *
      * @param  string $title
-     * @param  bool $mapped
      * @return self
      */
-    public function title(string $title, bool $mapped = true): self
+    public function title(string $title): self
     {
-        return $this->setProp('items.title', $title, $mapped);
+        return $this->setProp('items.title', $title);
     }
 
     /**

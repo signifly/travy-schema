@@ -20,9 +20,9 @@ class RadioGroup extends Field
      * @param  bool $items
      * @return self
      */
-    public function items(array $items, bool $mapped = false): self
+    public function items(array $items): self
     {
-        return $this->setProp('items', $items, $mapped);
+        return $this->setProp('items', $items);
     }
 
     /**

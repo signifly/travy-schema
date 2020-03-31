@@ -17,9 +17,9 @@ class Date extends Field
      * @param  string $format
      * @return self
      */
-    public function format(string $format, bool $mapped = false): self
+    public function format(string $format): self
     {
-        return $this->withProps(compact('format'), $mapped);
+        return $this->withProps(compact('format'));
     }
 
     /**

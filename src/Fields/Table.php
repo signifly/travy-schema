@@ -17,9 +17,9 @@ class Table extends Field
      * @param  array|string  $value
      * @return self
      */
-    public function value($value, bool $mapped = true): self
+    public function value($value): self
     {
-        return $this->setProp('value', $value, $mapped);
+        return $this->setProp('value', $value);
     }
 
     /**
@@ -30,7 +30,7 @@ class Table extends Field
      */
     public function columns(array $fields): self
     {
-        return $this->setProp('columns', $fields, false);
+        return $this->setProp('columns', $fields);
     }
 
     /**
