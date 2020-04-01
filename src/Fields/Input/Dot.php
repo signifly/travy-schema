@@ -22,6 +22,17 @@ class Dot extends Field
     }
 
     /**
+     * Set the size prop.
+     *
+     * @param string $size
+     * @return $this
+     */
+    public function size(string $size): self
+    {
+        return $this->setProp('size', $size);
+    }
+
+    /**
      * The options to apply to the field type.
      *
      * @return void
