@@ -5,7 +5,7 @@ namespace Signifly\Travy\Schema\Concerns;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Signifly\Travy\Schema\Exceptions\InvalidPropsException;
-use Signifly\Travy\Schema\Support\UnmappedProp;
+use Signifly\Travy\Schema\Support\CustomMapping;
 
 /**
  * @internal
@@ -84,7 +84,7 @@ trait HasProps
      */
     public function setProp(string $key, $value, bool $mapped = true): self
     {
-        Arr::set($this->props, $key, $mapped ? $value : new UnmappedProp($value));
+        Arr::set($this->props, $key, $mapped ? $value : new CustomMapping($value));
 
         return $this;
     }
@@ -99,11 +99,11 @@ trait HasProps
     {
         if ($mapped === false) {
             foreach ($props as $key => $value) {
-                if ($value instanceof UnmappedProp) {
+                if ($value instanceof CustomMapping) {
                     continue;
                 }
 
-                $props[$key] = new UnmappedProp($value);
+                $props[$key] = new CustomMapping($value);
             }
         }
 

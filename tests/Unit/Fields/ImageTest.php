@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\Image;
-use Signifly\Travy\Schema\Support\UnmappedProp;
+use Signifly\Travy\Schema\Support\CustomMapping;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class ImageTest extends TestCase
@@ -53,7 +53,7 @@ class ImageTest extends TestCase
     /** @test */
     public function it_can_use_unmapped_props()
     {
-        $field = Image::make('Image', new UnmappedProp('test'))
+        $field = Image::make('Image', new CustomMapping('test'))
             ->size('100%', '300px')
             ->fit('contain');
 

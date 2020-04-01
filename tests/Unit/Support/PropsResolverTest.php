@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Support;
 
 use Signifly\Travy\Schema\Support\PropsResolver;
-use Signifly\Travy\Schema\Support\UnmappedProp;
+use Signifly\Travy\Schema\Support\CustomMapping;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class PropsResolverTest extends TestCase
@@ -45,10 +45,10 @@ class PropsResolverTest extends TestCase
     public function it_resolves_unmapped_props()
     {
         $props = [
-            'this' => new UnmappedProp('that'),
+            'this' => new CustomMapping('that'),
             'list' => [
                 ['key_a' => 'value_aa', 'key_b' => 'value_ba'],
-                ['key_a' => 'value_ab', 'key_b' => new UnmappedProp('value_bb')],
+                ['key_a' => 'value_ab', 'key_b' => new CustomMapping('value_bb')],
                 ['key_a' => 'value_ac', 'key_b' => 'value_bc'],
             ],
         ];

@@ -23,7 +23,7 @@ class AttributeResolver
      */
     public function resolve($value, string $fallback): string
     {
-        if ($value instanceof UnmappedProp) {
+        if ($value instanceof CustomMapping) {
             $value = $value->getAttribute();
         }
 

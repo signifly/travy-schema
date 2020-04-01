@@ -2,7 +2,7 @@
 
 namespace Signifly\Travy\Schema\Support;
 
-class UnmappedProp
+class CustomMapping
 {
     /**
      * @var string|null

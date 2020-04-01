@@ -18,8 +18,7 @@ class PropsResolver
             ->mapWithKeys(function ($value, $key) {
                 if (is_array($value)) {
                     $value = $this->resolve($value);
-                } elseif ($value instanceof UnmappedProp) {
-                    $key = "{$key}";
+                } elseif ($value instanceof CustomMapping) {
                     $value = $value->getValue();
                 } elseif (! Str::contains('@scope', $key)) {
                     $value = '{'.$value.'}';

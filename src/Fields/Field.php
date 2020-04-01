@@ -9,6 +9,7 @@ use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
+use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
 use Signifly\Travy\Schema\Width;
@@ -107,16 +108,14 @@ abstract class Field implements JsonSerializable
     }
 
     /**
-     * Hide action on given constraint.
+     * Hide action based on the provided comparators.
      *
-     * @param  string $key
-     * @param  mixed $value
-     * @param  string $operator
+     * @param  Comparator[] $comparators
      * @return self
      */
-    public function hide(string $key, $value, string $operator = 'eq'): self
+    public function hide(array $comparators): self
     {
-        return $this->withMeta(['hide' => compact('key', 'operator', 'value')]);
+        return $this->withMeta(['hide' => collect($comparators)->jsonSerialize()]);
     }
 
     /**

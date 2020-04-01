@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Support;
 
 use Signifly\Travy\Schema\Support\AttributeResolver;
-use Signifly\Travy\Schema\Support\UnmappedProp;
+use Signifly\Travy\Schema\Support\CustomMapping;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class AttributeResolverTest extends TestCase
@@ -29,7 +29,7 @@ class AttributeResolverTest extends TestCase
     /** @test */
     public function it_resolves_an_unmapped_prop_without_a_specified_attribute_value()
     {
-        $attribute = new UnmappedProp('some_value');
+        $attribute = new CustomMapping('some_value');
         $fallback = 'fallback';
 
         $this->assertSame($fallback, ($this->resolver->resolve($attribute, $fallback)));
@@ -39,7 +39,7 @@ class AttributeResolverTest extends TestCase
     public function it_resolves_an_unmapped_prop_with_a_specified_attribute_value()
     {
         $specifiedAttributeValue = 'specified_attribute_value';
-        $attribute = new UnmappedProp('some_value', $specifiedAttributeValue);
+        $attribute = new CustomMapping('some_value', $specifiedAttributeValue);
         $fallback = 'fallback';
 
         $this->assertSame($specifiedAttributeValue, ($this->resolver->resolve($attribute, $fallback)));
