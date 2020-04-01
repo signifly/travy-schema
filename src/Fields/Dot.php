@@ -34,7 +34,7 @@ class Dot extends Field
      *
      * @return void
      */
-    public function applyOptions()
+    public function applyOptions(): void
     {
         $this->setProp('color', $this->attribute);
     }

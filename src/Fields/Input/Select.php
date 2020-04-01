@@ -19,7 +19,7 @@ class Select extends Field
     /**
      * Set the items.
      *
-     * @param  array|string  $items
+     * @param  array|string  $items <label, value>
      * @param  bool $mapped
      * @return self
      */
