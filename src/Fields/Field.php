@@ -109,7 +109,7 @@ abstract class Field implements JsonSerializable
     }
 
     /**
-     * Show action based on the provided comparators.
+     * Show field based on the provided comparators.
      *
      * @param  Comparator[] $comparators
      * @return self

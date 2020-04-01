@@ -7,6 +7,7 @@ use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\HasMeta;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Fields\Status;
+use Signifly\Travy\Schema\Support\Comparator;
 
 abstract class Action implements Arrayable, JsonSerializable
 {
@@ -73,16 +74,14 @@ abstract class Action implements Arrayable, JsonSerializable
     abstract public function actionType(): array;
 
     /**
-     * Hide action on given constraint.
+     * Show action based on the provided comparators.
      *
-     * @param  string $key
-     * @param  mixed $value
-     * @param  string $operator
+     * @param  Comparator[] $comparators
      * @return self
      */
-    public function hide(string $key, $value, string $operator = 'eq'): self
+    public function show(array $comparators): self
     {
-        return $this->withMeta(['hide' => compact('key', 'operator', 'value')]);
+        return $this->withMeta(['show' => collect($comparators)->jsonSerialize()]);
     }
 
     /**
