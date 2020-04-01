@@ -2,8 +2,9 @@
 
 namespace Signifly\Travy\Schema\Fields;
 
-class Dot extends Fields
+class Dot extends Field
 {
+    /** {@inheritdoc} */
     public $component = 'dot';
 
     /**

@@ -6,11 +6,7 @@ use Signifly\Travy\Schema\Action;
 
 class ButtonAction extends Field
 {
-    /**
-     * The field's component.
-     *
-     * @var string
-     */
+    /** {@inheritdoc} */
     public $component = 'button-action';
 
     /**
@@ -19,18 +15,8 @@ class ButtonAction extends Field
      * @param  Action $action
      * @return self
      */
-    public function action(Action $action, bool $mapped = false): self
+    public function action(Action $action): self
     {
-        return $this->setProp('action', $action->jsonSerialize(), $mapped);
-    }
-
-    /**
-     * The options to apply to the field type.
-     *
-     * @return void
-     */
-    public function applyOptions(): void
-    {
-        $this->setProp('data', '$root');
+        return $this->setProp('action', $action->jsonSerialize(), false);
     }
 }

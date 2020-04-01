@@ -4,35 +4,19 @@ namespace Signifly\Travy\Schema\Fields;
 
 class Text extends Field
 {
-    /**
-     * The field's component.
-     *
-     * @var string
-     */
+    /** {@inheritdoc} */
     public $component = 'text';
 
     /**
-     * Set the align prop.
+     * Enable copy text.
      *
-     * @param  string $align
-     * @param  bool $mapped
+     * @param bool $value
+     * @param bool $mapped
      * @return self
      */
-    public function align(string $align, bool $mapped = false): self
+    public function copy($value = true, bool $mapped = false): self
     {
-        return $this->withProps(compact('align'), $mapped);
-    }
-
-    /**
-     * Set the bold prop.
-     *
-     * @param  bool $value
-     * @param  bool $mapped
-     * @return self
-     */
-    public function bold($value = true, bool $mapped = false): self
-    {
-        return $this->withProps(['bold' => $value], $mapped);
+        return $this->setProp('copy', $value, $mapped);
     }
 
     /**
@@ -41,20 +25,21 @@ class Text extends Field
      * @param  mixed $text
      * @return self
      */
-    public function default($text): self
+    public function fallback($text): self
     {
-        return $this->setProp('_fallback.text', $text);
+        return $this->setProp('fallback', $text, false);
     }
 
     /**
-     * Set the status prop.
+     * Set the tooltip prop.
      *
-     * @param  string $status
+     * @param  string $tooltip
+     * @param  bool $mapped
      * @return self
      */
-    public function status(string $status, bool $mapped = true): self
+    public function iconTooltip(string $tooltip, bool $mapped = true): self
     {
-        return $this->withProps(compact('status'), $mapped);
+        return $this->withProps(compact('tooltip'), $mapped);
     }
 
     /**
@@ -70,15 +55,14 @@ class Text extends Field
     }
 
     /**
-     * Set the tooltip prop.
+     * Apply styling to the field.
      *
-     * @param  string $tooltip
-     * @param  bool $mapped
+     * @param array $style
      * @return self
      */
-    public function iconTooltip(string $tooltip, bool $mapped = true): self
+    public function style(array $style): self
     {
-        return $this->withProps(compact('tooltip'), $mapped);
+        return $this->setProp('style', $style, false);
     }
 
     /**

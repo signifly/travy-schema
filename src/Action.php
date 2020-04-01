@@ -56,7 +56,7 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function __construct(
         string $name,
-        string $status = 'primary',
+        string $status = 'default',
         ?string $icon = null
     ) {
         $this->name = $name;
