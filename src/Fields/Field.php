@@ -12,6 +12,7 @@ use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
+use Signifly\Travy\Schema\Support\Tooltip;
 use Signifly\Travy\Schema\Width;
 
 abstract class Field implements JsonSerializable
@@ -177,14 +178,14 @@ abstract class Field implements JsonSerializable
     }
 
     /**
-     * Set the sublabel of the column.
+     * Set the tooltip prop.
      *
-     * @param  string $text
+     * @param Tooltip[] $items
      * @return self
      */
-    public function sublabel(string $text): self
+    public function tooltip(array $items)
     {
-        return $this->withMeta(['sublabel' => $text]);
+        return $this->withMeta(['tooltip' => $items]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Concerns;
 
 use Illuminate\Support\Arr;
+use Signifly\Travy\Schema\Schema;
 
 /**
  * @internal
@@ -56,7 +57,7 @@ trait HasMetaData
      */
     public function meta()
     {
-        return $this->meta;
+        return Schema::make($this->meta)->toArray();
     }
 
     /**

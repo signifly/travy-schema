@@ -44,7 +44,7 @@ class Schema implements ArrayAccess, Arrayable, JsonSerializable
      */
     public function forget($key)
     {
-        return Arr::forget($this->attributes, $key);
+        Arr::forget($this->attributes, $key);
     }
 
     /**

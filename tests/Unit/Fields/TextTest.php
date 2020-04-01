@@ -5,6 +5,7 @@ namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\Operator;
+use Signifly\Travy\Schema\Support\Tooltip;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class TextTest extends TestCase
@@ -57,6 +58,38 @@ class TextTest extends TestCase
                 ],
             ],
         ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
+    public function it_can_set_a_tooltip()
+    {
+        $field = Text::make('Name')
+            ->tooltip([
+                Tooltip::make('Displays the full name')
+                    ->show('is_active', true),
+            ]);
+
+        $expected = [
+            'name' => 'Name',
+            'fieldType' => [
+                'id' => 'text',
+                'props' => [
+                    'text' => '{name}',
+                ],
+            ],
+            'tooltip' => [
+                [
+                    'text' => 'Displays the full name',
+                    'show' => [
+                        'key' => '{is_active}',
+                        'operator' => Operator::EQ,
+                        'value' => true,
+                    ],
+                ],
+            ],
+        ];
+
         $this->assertEquals($expected, $field->jsonSerialize());
     }
 }
