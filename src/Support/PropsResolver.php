@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Support;
 
 use Illuminate\Support\Str;
+use Signifly\Travy\Schema\Fields\Field;
 
 class PropsResolver
 {
@@ -20,6 +21,8 @@ class PropsResolver
                     $value = $this->resolve($value);
                 } elseif ($value instanceof CustomMapping) {
                     $value = $value->getValue();
+                } elseif ($value instanceof Field) {
+                    // do not modify $value
                 } elseif (! Str::contains('@scope', $key)) {
                     $value = '{'.$value.'}';
                 }
