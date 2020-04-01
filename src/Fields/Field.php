@@ -4,22 +4,22 @@ namespace Signifly\Travy\Schema\Fields;
 
 use Illuminate\Support\Str;
 use JsonSerializable;
-use Signifly\Travy\Schema\Concerns\HasMetaData;
+use Signifly\Travy\Schema\Concerns\HasMeta;
 use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\Comparator;
+use Signifly\Travy\Schema\Support\CustomMapping;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
 use Signifly\Travy\Schema\Support\Tooltip;
-use Signifly\Travy\Schema\Width;
 
 abstract class Field implements JsonSerializable
 {
     use HasProps;
     use HasScopes;
-    use HasMetaData;
+    use HasMeta;
     use Instantiable;
 
     /**
@@ -39,7 +39,7 @@ abstract class Field implements JsonSerializable
     /**
      * The attribute / column name of the field.
      *
-     * @var string|UnmappedProp
+     * @var string|CustomMapping
      */
     public $attribute;
 

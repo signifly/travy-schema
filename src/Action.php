@@ -4,12 +4,12 @@ namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
-use Signifly\Travy\Schema\Concerns\HasMetaData;
+use Signifly\Travy\Schema\Concerns\HasMeta;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
 abstract class Action implements Arrayable, JsonSerializable
 {
-    use HasMetaData;
+    use HasMeta;
     use Instantiable;
 
     /**

@@ -8,7 +8,7 @@ use Signifly\Travy\Schema\Schema;
 /**
  * @internal
  */
-trait HasMetaData
+trait HasMeta
 {
     /**
      * The meta data for the element.
@@ -23,9 +23,9 @@ trait HasMetaData
      * @param  string $key
      * @return void
      */
-    public function forgetMeta(string $key)
+    public function forgetMeta(string $key): void
     {
-        return Arr::forget($this->meta, $key);
+        Arr::forget($this->meta, $key);
     }
 
     /**
@@ -45,7 +45,7 @@ trait HasMetaData
      * @param  string  $key
      * @return bool
      */
-    public function hasMeta(string $key)
+    public function hasMeta(string $key): bool
     {
         return Arr::has($this->meta, $key);
     }
@@ -55,7 +55,7 @@ trait HasMetaData
      *
      * @return array
      */
-    public function meta()
+    public function meta(): array
     {
         return Schema::make($this->meta)->toArray();
     }
@@ -66,7 +66,7 @@ trait HasMetaData
      * @param  array  $meta
      * @return $this
      */
-    public function withMeta(array $meta)
+    public function withMeta(array $meta): self
     {
         $this->meta = array_merge($this->meta, $meta);
 
