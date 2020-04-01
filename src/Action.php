@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\HasMeta;
 use Signifly\Travy\Schema\Concerns\Instantiable;
+use Signifly\Travy\Schema\Fields\Status;
 
 abstract class Action implements Arrayable, JsonSerializable
 {
@@ -56,7 +57,7 @@ abstract class Action implements Arrayable, JsonSerializable
      */
     public function __construct(
         string $name,
-        string $status = 'default',
+        string $status = Status::PRIMARY,
         ?string $icon = null
     ) {
         $this->name = $name;

@@ -4,6 +4,12 @@ namespace Signifly\Travy\Schema\Fields;
 
 class Status extends Field
 {
+    const DANGER = 'danger';
+    const DEFAULT = 'default';
+    const INFO = 'info';
+    const PRIMARY = 'primary';
+    const WARNING = 'warning';
+
     /**
      * The field's component.
      *
