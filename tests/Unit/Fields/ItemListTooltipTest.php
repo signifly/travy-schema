@@ -16,14 +16,13 @@ class ItemListTooltipTest extends TestCase
 
         $expected = [
             'name' => 'Products',
-            'attribute' => 'products',
             'fieldType' => [
                 'id' => 'item-list-tooltip',
                 'props' => [
                     'items' => [
                         '@scope' => 'products',
-                        '_link' => '/products/{id}',
-                        'label' => 'name',
+                        'link' => '/products/{id}',
+                        'label' => '{name}',
                     ],
                 ],
             ],

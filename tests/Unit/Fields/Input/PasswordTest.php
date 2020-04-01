@@ -14,12 +14,11 @@ class PasswordTest extends TestCase
 
         $expected = [
             'name' => 'Password',
-            'attribute' => 'password',
             'fieldType' => [
                 'id' => 'input-password',
                 'props' => [
-                    'value' => 'password',
-                    '_autocomplete' => 'new-password',
+                    'value' => '{password}',
+                    'autocomplete' => 'new-password',
                 ],
             ],
         ];

@@ -18,15 +18,14 @@ class ImagePickerTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'file_id',
             'fieldType' => [
                 'id' => 'input-image-picker',
                 'props' => [
-                    'id' => 'file_id',
-                    'url' => 'image_url',
-                    '_height' => '80px',
-                    '_width' => '80px',
-                    '_entities' => [
+                    'value' => '{file_id}',
+                    'url' => '{image_url}',
+                    'height' => '80px',
+                    'width' => '80px',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -53,15 +52,14 @@ class ImagePickerTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'file_id',
             'fieldType' => [
                 'id' => 'input-image-picker',
                 'props' => [
-                    'id' => 'file_id',
-                    'url' => 'image_url',
-                    '_height' => '80px',
-                    '_width' => '80px',
-                    '_entities' => [
+                    'value' => '{file_id}',
+                    'url' => '{image_url}',
+                    'height' => '80px',
+                    'width' => '80px',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],

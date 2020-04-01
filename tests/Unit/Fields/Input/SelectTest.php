@@ -15,12 +15,11 @@ class SelectTest extends TestCase
 
         $expected = [
             'name' => 'Currency',
-            'attribute' => 'currency_id',
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
+                    'value' => '{currency_id}',
+                    'entities' => $items,
                 ],
             ],
         ];
@@ -36,13 +35,12 @@ class SelectTest extends TestCase
 
         $expected = [
             'name' => 'Currency',
-            'attribute' => 'currency_id',
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
-                    '_clearable' => true,
+                    'value' => '{currency_id}',
+                    'entities' => $items,
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -58,13 +56,12 @@ class SelectTest extends TestCase
 
         $expected = [
             'name' => 'Currency',
-            'attribute' => 'currency_id',
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
-                    '_disabled' => true,
+                    'value' => '{currency_id}',
+                    'entities' => $items,
+                    'disabled' => true,
                 ],
             ],
         ];

@@ -18,23 +18,21 @@ class TableTest extends TestCase
 
         $expected = [
             'name' => 'Products',
-            'attribute' => 'products',
             'fieldType' => [
                 'id' => 'table',
                 'props' => [
-                    '_columns' => [
+                    'columns' => [
                         [
                             'name' => 'Name',
-                            'attribute' => 'name',
                             'fieldType' => [
                                 'id' => 'text',
                                 'props' => [
-                                    'text' => 'name',
+                                    'text' => '{name}',
                                 ],
                             ],
                         ],
                     ],
-                    'value' => 'products',
+                    'value' => '{products}',
                 ],
             ],
         ];

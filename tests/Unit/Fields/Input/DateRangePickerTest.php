@@ -16,12 +16,11 @@ class DateRangePickerTest extends TestCase
 
         $expected = [
             'name' => 'Accessibility',
-            'attribute' => 'accessibility',
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
                 ],
             ],
         ];
@@ -34,17 +33,16 @@ class DateRangePickerTest extends TestCase
         $field = DateRangePicker::make('Accessibility')
             ->start('start_date')
             ->end('end_date')
-            ->clearable();
+            ->clearable(true);
 
         $expected = [
             'name' => 'Accessibility',
-            'attribute' => 'accessibility',
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
-                    '_clearable' => true,
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -61,13 +59,12 @@ class DateRangePickerTest extends TestCase
 
         $expected = [
             'name' => 'Accessibility',
-            'attribute' => 'accessibility',
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
-                    '_disabled' => true,
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
+                    'disabled' => true,
                 ],
             ],
         ];

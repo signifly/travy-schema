@@ -14,11 +14,10 @@ class CheckboxTest extends TestCase
 
         $expected = [
             'name' => 'Accept Terms',
-            'attribute' => 'accept_terms',
             'fieldType' => [
                 'id' => 'input-checkbox',
                 'props' => [
-                    'value' => 'accept_terms',
+                    'value' => '{accept_terms}',
                 ],
             ],
         ];
@@ -33,12 +32,11 @@ class CheckboxTest extends TestCase
 
         $expected = [
             'name' => 'Accept Terms',
-            'attribute' => 'accept_terms',
             'fieldType' => [
                 'id' => 'input-checkbox',
                 'props' => [
-                    'value' => 'accept_terms',
-                    '_disabled' => true,
+                    'value' => '{accept_terms}',
+                    'disabled' => true,
                 ],
             ],
         ];

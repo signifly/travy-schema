@@ -16,13 +16,12 @@ class ImageTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'src',
             'fieldType' => [
                 'id' => 'image',
                 'props' => [
-                    'src' => 'src',
-                    '_width' => '100%',
-                    '_height' => '300px',
+                    'src' => '{src}',
+                    'width' => '100%',
+                    'height' => '300px',
                 ],
             ],
         ];
@@ -38,14 +37,13 @@ class ImageTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'src',
             'fieldType' => [
                 'id' => 'image',
                 'props' => [
-                    'src' => 'src',
-                    '_width' => '100%',
-                    '_height' => '300px',
-                    '_fit' => 'contain',
+                    'src' => '{src}',
+                    'width' => '100%',
+                    'height' => '300px',
+                    'fit' => 'contain',
                 ],
             ],
         ];
@@ -61,14 +59,13 @@ class ImageTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'image',
             'fieldType' => [
                 'id' => 'image',
                 'props' => [
-                    '_src' => 'test',
-                    '_width' => '100%',
-                    '_height' => '300px',
-                    '_fit' => 'contain',
+                    'src' => 'test',
+                    'width' => '100%',
+                    'height' => '300px',
+                    'fit' => 'contain',
                 ],
             ],
         ];
@@ -84,14 +81,13 @@ class ImageTest extends TestCase
 
         $expected = [
             'name' => 'Image',
-            'attribute' => 'src',
             'fieldType' => [
                 'id' => 'image',
                 'props' => [
-                    'src' => 'src',
-                    '_width' => '100%',
-                    '_height' => '300px',
-                    'fit' => 'fit',
+                    'src' => '{src}',
+                    'width' => '100%',
+                    'height' => '300px',
+                    'fit' => '{fit}',
                 ],
             ],
         ];

@@ -14,11 +14,10 @@ class DividerTest extends TestCase
 
         $expected = [
             'name' => null,
-            'attribute' => 'divider_title',
             'fieldType' => [
                 'id' => 'divider',
                 'props' => [
-                    '_text' => 'Divider title',
+                    'text' => 'Divider title',
                 ],
             ],
         ];

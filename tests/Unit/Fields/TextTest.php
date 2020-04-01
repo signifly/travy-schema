@@ -14,11 +14,10 @@ class TextTest extends TestCase
 
         $expected = [
             'name' => 'Name',
-            'attribute' => 'name',
             'fieldType' => [
                 'id' => 'text',
                 'props' => [
-                    'text' => 'name',
+                    'text' => '{name}',
                 ],
             ],
         ];

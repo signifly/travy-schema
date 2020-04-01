@@ -9,7 +9,6 @@ use Signifly\Travy\Schema\Concerns\HasProps;
 use Signifly\Travy\Schema\Concerns\HasScopes;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
-use Signifly\Travy\Schema\Support\AttributeResolver;
 use Signifly\Travy\Schema\Support\PropsResolver;
 use Signifly\Travy\Schema\Support\ScopesApplier;
 use Signifly\Travy\Schema\Width;
@@ -123,12 +122,13 @@ abstract class Field implements JsonSerializable
     /**
      * Specify that this field should be disabled.
      *
-     * @param  bool  $value
+     * @param bool|string  $value
+     * @param bool $mapped
      * @return self
      */
-    public function disabled($value = true): self
+    public function disabled($value = true, bool $mapped = false): self
     {
-        return $this->setProp('disabled', $value, false);
+        return $this->setProp('disabled', $value, $mapped);
     }
 
     /**
@@ -219,7 +219,6 @@ abstract class Field implements JsonSerializable
 
         return array_merge([
             'name' => $this->name,
-            'attribute' => (new AttributeResolver())->resolve($this->attribute, $this->name ?? ''),
             'fieldType' => $this->fieldType(),
         ], $this->meta());
     }

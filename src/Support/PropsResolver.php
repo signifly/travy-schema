@@ -2,6 +2,8 @@
 
 namespace Signifly\Travy\Schema\Support;
 
+use Illuminate\Support\Str;
+
 class PropsResolver
 {
     /**
@@ -17,8 +19,10 @@ class PropsResolver
                 if (is_array($value)) {
                     $value = $this->resolve($value);
                 } elseif ($value instanceof UnmappedProp) {
-                    $key = "_{$key}";
+                    $key = "{$key}";
                     $value = $value->getValue();
+                } elseif (! Str::contains('@scope', $key)) {
+                    $value = '{'.$value.'}';
                 }
 
                 return [$key => $value];

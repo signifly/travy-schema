@@ -15,12 +15,11 @@ class ProgressTest extends TestCase
 
         $expected = [
             'name' => 'Status',
-            'attribute' => 'status',
             'fieldType' => [
                 'id' => 'progress',
                 'props' => [
-                    'percentage' => 'status',
-                    'status' => 'danger',
+                    'percentage' => '{status}',
+                    'status' => '{danger}',
                 ],
             ],
         ];

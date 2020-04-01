@@ -14,11 +14,10 @@ class TimeSinceTest extends TestCase
 
         $expected = [
             'name' => 'Created at',
-            'attribute' => 'created_at',
             'fieldType' => [
                 'id' => 'time-since',
                 'props' => [
-                    'timestamp' => 'created_at',
+                    'timestamp' => '{created_at}',
                 ],
             ],
         ];

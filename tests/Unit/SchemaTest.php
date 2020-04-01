@@ -29,22 +29,20 @@ class SchemaTest extends TestCase
             'name' => 'name',
             'field' => [
                 'name' => 'Test',
-                'attribute' => 'test',
                 'fieldType' => [
                     'id' => 'text',
                     'props' => [
-                        'text' => 'test',
+                        'text' => '{test}',
                     ],
                 ],
             ],
             'items' => [
                 [
                     'name' => 'Name',
-                    'attribute' => 'name',
                     'fieldType' => [
                         'id' => 'text',
                         'props' => [
-                            'text' => 'name',
+                            'text' => '{name}',
                         ],
                     ],
                 ],
@@ -53,22 +51,20 @@ class SchemaTest extends TestCase
                 'nested' => [
                     [
                         'name' => 'Other',
-                        'attribute' => 'other',
                         'fieldType' => [
                             'id' => 'text',
                             'props' => [
-                                'text' => 'other',
+                                'text' => '{other}',
                             ],
                         ],
                     ],
                 ],
                 'item' => [
                     'name' => 'Something',
-                    'attribute' => 'something',
                     'fieldType' => [
                         'id' => 'text',
                         'props' => [
-                            'text' => 'something',
+                            'text' => '{something}',
                         ],
                     ],
                 ],

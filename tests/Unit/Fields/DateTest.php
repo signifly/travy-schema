@@ -15,11 +15,10 @@ class DateTest extends TestCase
 
         $expected = [
             'name' => 'Created at',
-            'attribute' => 'created_at',
             'fieldType' => [
                 'id' => 'date',
                 'props' => [
-                    'timestamp' => 'created_at',
+                    'timestamp' => '{created_at}',
                 ],
             ],
         ];
@@ -34,11 +33,10 @@ class DateTest extends TestCase
 
         $expected = [
             'name' => 'Created at',
-            'attribute' => 'created_at',
             'fieldType' => [
                 'id' => 'date',
                 'props' => [
-                    '_timestamp' => $time,
+                    'timestamp' => $time,
                 ],
             ],
         ];

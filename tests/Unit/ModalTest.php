@@ -32,11 +32,10 @@ class ModalTest extends TestCase
                     'fields' => [
                         [
                             'name' => 'Name',
-                            'attribute' => 'name',
                             'fieldType' => [
                                 'id' => 'input-text',
                                 'props' => [
-                                    'value' => 'name',
+                                    'value' => '{name}',
                                 ],
                             ],
                         ],

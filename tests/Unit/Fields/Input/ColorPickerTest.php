@@ -14,11 +14,10 @@ class ColorPickerTest extends TestCase
 
         $expected = [
             'name' => 'Color Code',
-            'attribute' => 'color_code',
             'fieldType' => [
                 'id' => 'input-color-picker',
                 'props' => [
-                    'value' => 'color_code',
+                    'value' => '{color_code}',
                 ],
             ],
         ];
@@ -33,12 +32,11 @@ class ColorPickerTest extends TestCase
 
         $expected = [
             'name' => 'Color Code',
-            'attribute' => 'color_code',
             'fieldType' => [
                 'id' => 'input-color-picker',
                 'props' => [
-                    'value' => 'color_code',
-                    '_disabled' => true,
+                    'value' => '{color_code}',
+                    'disabled' => true,
                 ],
             ],
         ];

@@ -16,11 +16,10 @@ class ToggleTest extends TestCase
 
         $expected = [
             'name' => 'Visible',
-            'attribute' => 'visible',
             'fieldType' => [
                 'id' => 'input-toggle',
                 'props' => [
-                    'value' => 'visible',
+                    'value' => '{visible}',
                 ],
             ],
         ];
@@ -37,12 +36,11 @@ class ToggleTest extends TestCase
 
         $expected = [
             'name' => 'Visible',
-            'attribute' => 'visible',
             'fieldType' => [
                 'id' => 'input-toggle',
                 'props' => [
-                    'value' => 'visible',
-                    '_disabled' => true,
+                    'value' => '{visible}',
+                    'disabled' => true,
                 ],
             ],
         ];

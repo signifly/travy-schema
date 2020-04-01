@@ -14,11 +14,10 @@ class TextTest extends TestCase
 
         $expected = [
             'name' => 'Content',
-            'attribute' => 'content',
             'fieldType' => [
                 'id' => 'input-text',
                 'props' => [
-                    'value' => 'content',
+                    'value' => '{content}',
                 ],
             ],
         ];
@@ -33,12 +32,11 @@ class TextTest extends TestCase
 
         $expected = [
             'name' => 'Email',
-            'attribute' => 'email',
             'fieldType' => [
                 'id' => 'input-text',
                 'props' => [
-                    'value' => 'email',
-                    '_type' => 'email',
+                    'value' => '{email}',
+                    'type' => 'email',
                 ],
             ],
         ];
@@ -53,12 +51,11 @@ class TextTest extends TestCase
 
         $expected = [
             'name' => 'Height',
-            'attribute' => 'height',
             'fieldType' => [
                 'id' => 'input-text',
                 'props' => [
-                    'value' => 'height',
-                    '_unit' => 'cm',
+                    'value' => '{height}',
+                    'unit' => 'cm',
                 ],
             ],
         ];
@@ -73,12 +70,11 @@ class TextTest extends TestCase
 
         $expected = [
             'name' => 'Content',
-            'attribute' => 'content',
             'fieldType' => [
                 'id' => 'input-text',
                 'props' => [
-                    'value' => 'content',
-                    '_disabled' => true,
+                    'value' => '{content}',
+                    'disabled' => true,
                 ],
             ],
         ];

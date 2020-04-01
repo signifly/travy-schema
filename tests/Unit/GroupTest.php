@@ -21,11 +21,10 @@ class GroupTest extends TestCase
             'fields' => [
                 [
                     'name' => 'Name',
-                    'attribute' => 'name',
                     'fieldType' => [
                         'id' => 'text',
                         'props' => [
-                            'text' => 'name',
+                            'text' => '{name}',
                         ],
                     ],
                 ],

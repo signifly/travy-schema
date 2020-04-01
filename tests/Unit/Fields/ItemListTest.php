@@ -16,14 +16,13 @@ class ItemListTest extends TestCase
 
         $expected = [
             'name' => 'Products',
-            'attribute' => 'products',
             'fieldType' => [
                 'id' => 'item-list',
                 'props' => [
                     'items' => [
                         '@scope' => 'products',
-                        'label' => 'name',
-                        'value' => 'id',
+                        'label' => '{name}',
+                        'value' => '{id}',
                     ],
                 ],
             ],

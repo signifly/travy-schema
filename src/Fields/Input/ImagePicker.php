@@ -100,7 +100,7 @@ class ImagePicker extends Image
             $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
         }
 
-        $this->setProp('id', $this->attribute);
+        $this->setProp('value', $this->attribute);
         $this->setProp('entities', $this->options(), false);
     }
 }

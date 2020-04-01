@@ -29,7 +29,14 @@ class PropsResolverTest extends TestCase
             ],
         ];
 
-        $expected = $props;
+        $expected = [
+            'this' => '{that}',
+            'list' => [
+                ['key_a' => '{value_aa}', 'key_b' => '{value_ba}'],
+                ['key_a' => '{value_ab}', 'key_b' => '{value_bb}'],
+                ['key_a' => '{value_ac}', 'key_b' => '{value_bc}'],
+            ],
+        ];
 
         $this->assertSame($expected, $this->resolver->resolve($props));
     }
@@ -47,11 +54,11 @@ class PropsResolverTest extends TestCase
         ];
 
         $expected = [
-            '_this' => 'that',
+            'this' => 'that',
             'list' => [
-                ['key_a' => 'value_aa', 'key_b' => 'value_ba'],
-                ['key_a' => 'value_ab', '_key_b' => 'value_bb'],
-                ['key_a' => 'value_ac', 'key_b' => 'value_bc'],
+                ['key_a' => '{value_aa}', 'key_b' => '{value_ba}'],
+                ['key_a' => '{value_ab}', 'key_b' => 'value_bb'],
+                ['key_a' => '{value_ac}', 'key_b' => '{value_bc}'],
             ],
         ];
 

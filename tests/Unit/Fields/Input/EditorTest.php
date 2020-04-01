@@ -14,11 +14,10 @@ class EditorTest extends TestCase
 
         $expected = [
             'name' => 'Description',
-            'attribute' => 'description',
             'fieldType' => [
                 'id' => 'input-editor-markdown',
                 'props' => [
-                    'content' => 'description',
+                    'content' => '{description}',
                 ],
             ],
         ];
@@ -33,12 +32,11 @@ class EditorTest extends TestCase
 
         $expected = [
             'name' => 'Description',
-            'attribute' => 'description',
             'fieldType' => [
                 'id' => 'input-editor-markdown',
                 'props' => [
-                    'content' => 'description',
-                    '_disabled' => true,
+                    'content' => '{description}',
+                    'disabled' => true,
                 ],
             ],
         ];

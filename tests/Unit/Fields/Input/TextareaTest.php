@@ -14,11 +14,10 @@ class TextareaTest extends TestCase
 
         $expected = [
             'name' => 'Content',
-            'attribute' => 'content',
             'fieldType' => [
                 'id' => 'input-textarea',
                 'props' => [
-                    'value' => 'content',
+                    'value' => '{content}',
                 ],
             ],
         ];
@@ -33,12 +32,11 @@ class TextareaTest extends TestCase
 
         $expected = [
             'name' => 'Content',
-            'attribute' => 'content',
             'fieldType' => [
                 'id' => 'input-textarea',
                 'props' => [
-                    'value' => 'content',
-                    '_disabled' => true,
+                    'value' => '{content}',
+                    'disabled' => true,
                 ],
             ],
         ];

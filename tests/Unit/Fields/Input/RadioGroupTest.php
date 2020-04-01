@@ -15,12 +15,11 @@ class RadioGroupTest extends TestCase
 
         $expected = [
             'name' => 'Option',
-            'attribute' => 'option',
             'fieldType' => [
                 'id' => 'input-radio-group',
                 'props' => [
-                    'value' => 'option',
-                    '_items' => $items,
+                    'value' => '{option}',
+                    'items' => $items,
                 ],
             ],
         ];
@@ -36,13 +35,12 @@ class RadioGroupTest extends TestCase
 
         $expected = [
             'name' => 'Option',
-            'attribute' => 'option',
             'fieldType' => [
                 'id' => 'input-radio-group',
                 'props' => [
-                    'value' => 'option',
-                    '_items' => $items,
-                    '_disabled' => true,
+                    'value' => '{option}',
+                    'items' => $items,
+                    'disabled' => true,
                 ],
             ],
         ];

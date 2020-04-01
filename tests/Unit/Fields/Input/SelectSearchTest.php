@@ -17,12 +17,11 @@ class SelectSearchTest extends TestCase
 
         $expected = [
             'name' => 'Currencies',
-            'attribute' => 'currencies',
             'fieldType' => [
                 'id' => 'input-select-search',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => [
+                    'value' => '{currencies}',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -47,12 +46,11 @@ class SelectSearchTest extends TestCase
 
         $expected = [
             'name' => 'Currencies',
-            'attribute' => 'currencies',
             'fieldType' => [
                 'id' => 'input-select-search',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => [
+                    'value' => '{currencies}',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -60,7 +58,7 @@ class SelectSearchTest extends TestCase
                         'value' => 'id',
                         'dataWrap' => 'data',
                     ],
-                    '_clearable' => true,
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -78,12 +76,11 @@ class SelectSearchTest extends TestCase
 
         $expected = [
             'name' => 'Currencies',
-            'attribute' => 'currencies',
             'fieldType' => [
                 'id' => 'input-select-search',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => [
+                    'value' => '{currencies}',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -91,7 +88,7 @@ class SelectSearchTest extends TestCase
                         'value' => 'id',
                         'dataWrap' => 'data',
                     ],
-                    '_addable' => true,
+                    'addable' => true,
                 ],
             ],
         ];
@@ -109,12 +106,11 @@ class SelectSearchTest extends TestCase
 
         $expected = [
             'name' => 'Currencies',
-            'attribute' => 'currencies',
             'fieldType' => [
                 'id' => 'input-select-search',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => [
+                    'value' => '{currencies}',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -122,7 +118,7 @@ class SelectSearchTest extends TestCase
                         'value' => 'id',
                         'dataWrap' => 'data',
                     ],
-                    '_disabled' => true,
+                    'disabled' => true,
                 ],
             ],
         ];
