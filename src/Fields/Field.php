@@ -120,6 +120,17 @@ abstract class Field implements JsonSerializable
     }
 
     /**
+     * Specify a hint.
+     *
+     * @param string $hint
+     * @return $this
+     */
+    public function hint(string $hint): self
+    {
+        return $this->withMeta(compact('hint'));
+    }
+
+    /**
      * Specify that this field should be disabled.
      *
      * @param bool|string  $value
