@@ -108,14 +108,14 @@ abstract class Field implements JsonSerializable
     }
 
     /**
-     * Hide action based on the provided comparators.
+     * Show action based on the provided comparators.
      *
      * @param  Comparator[] $comparators
      * @return self
      */
-    public function hide(array $comparators): self
+    public function show(array $comparators): self
     {
-        return $this->withMeta(['hide' => collect($comparators)->jsonSerialize()]);
+        return $this->withMeta(['show' => collect($comparators)->jsonSerialize()]);
     }
 
     /**

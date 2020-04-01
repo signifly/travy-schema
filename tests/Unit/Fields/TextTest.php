@@ -27,11 +27,11 @@ class TextTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_hidden_based_on_a_comparator()
+    public function it_can_be_shown_based_on_comparators()
     {
         // Multiple comparators use OR checks
         $field = Text::make('Name')
-            ->hide([
+            ->show([
                 new Comparator('name', 'Test'),
                 new Comparator('name', 'Banan', Operator::NEQ),
             ]);
@@ -44,7 +44,7 @@ class TextTest extends TestCase
                     'text' => '{name}',
                 ],
             ],
-            'hide' => [
+            'show' => [
                 [
                     'key' => '{name}',
                     'operator' => Operator::EQ,

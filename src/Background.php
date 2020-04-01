@@ -3,35 +3,24 @@
 namespace Signifly\Travy\Schema;
 
 use Illuminate\Contracts\Support\Arrayable;
+use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Contracts\Condition;
 
-class Background implements Arrayable, Condition, \JsonSerializable
+class Background implements Arrayable, Condition, JsonSerializable
 {
     use Instantiable;
 
     /**
-     * The background color.
-     *
-     * @var string
-     */
-    protected $color;
-
-    /**
-     * Determines if the background should be applied.
+     * The background colors to show.
      *
      * @var array
      */
-    protected $active;
+    protected $colors;
 
-    /**
-     * Crete a new Background.
-     *
-     * @param string $color
-     */
-    public function __construct(string $color)
+    public function __construct(array $colors)
     {
-        $this->color = $color;
+        $this->colors = $colors;
     }
 
     /**
@@ -45,33 +34,17 @@ class Background implements Arrayable, Condition, \JsonSerializable
     }
 
     /**
-     * Determine if the background should be applied.
-     *
-     * @param string $key
-     * @param $value
-     * @param string $operator
-     * @return $this
-     */
-    public function active(string $key, $value, $operator = 'eq'): self
-    {
-        $this->active = compact('key', 'operator', 'value');
-
-        return $this;
-    }
-
-    /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function toArray()
     {
-        return [
-            'color' => $this->color,
-            'active' => $this->active,
-        ];
+        return Schema::make([
+            'colors' => $this->colors,
+        ])->toArray();
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function jsonSerialize()
     {
