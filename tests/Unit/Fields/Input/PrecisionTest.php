@@ -22,9 +22,9 @@ class PrecisionTest extends TestCase
             'fieldType' => [
                 'id' => 'input-precision',
                 'props' => [
-                    'value' => 'number',
-                    '_precision' => 2,
-                    '_step' => 0.1,
+                    'value' => '{number}',
+                    'precision' => 2,
+                    'step' => 0.1,
                 ],
             ],
         ];
@@ -47,10 +47,10 @@ class PrecisionTest extends TestCase
             'fieldType' => [
                 'id' => 'input-precision',
                 'props' => [
-                    'value' => 'number',
-                    '_precision' => 2,
-                    '_step' => 0.1,
-                    '_disabled' => true,
+                    'value' => '{number}',
+                    'precision' => 2,
+                    'step' => 0.1,
+                    'disabled' => true,
                 ],
             ],
         ];

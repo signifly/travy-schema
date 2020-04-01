@@ -10,7 +10,7 @@ class SelectTest extends TestCase
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = Select::make('Currency', '{currency_id}')
             ->items($items = $this->validItems());
 
         $expected = [
@@ -19,8 +19,8 @@ class SelectTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
+                    'value' => '{currency_id}',
+                    'entities' => $items,
                 ],
             ],
         ];
@@ -30,19 +30,19 @@ class SelectTest extends TestCase
     /** @test */
     public function it_is_clearable()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = Select::make('Currency')
             ->items($items = $this->validItems())
             ->clearable();
 
         $expected = [
             'name' => 'Currency',
-            'attribute' => 'currency_id',
+            'attribute' => 'currency',
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
-                    '_clearable' => true,
+                    'value' => '{currency}',
+                    'entities' => $items,
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -52,7 +52,7 @@ class SelectTest extends TestCase
     /** @test */
     public function it_can_be_disabled()
     {
-        $field = Select::make('Currency', 'currency_id')
+        $field = Select::make('Currency', '{currency_id}')
             ->items($items = $this->validItems())
             ->disabled();
 
@@ -62,9 +62,9 @@ class SelectTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select',
                 'props' => [
-                    'value' => 'currency_id',
-                    '_entities' => $items,
-                    '_disabled' => true,
+                    'value' => '{currency_id}',
+                    'entities' => $items,
+                    'disabled' => true,
                 ],
             ],
         ];

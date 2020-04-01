@@ -18,7 +18,7 @@ class ColorPickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-color-picker',
                 'props' => [
-                    'value' => 'color_code',
+                    'value' => '{color_code}',
                 ],
             ],
         ];
@@ -37,8 +37,8 @@ class ColorPickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-color-picker',
                 'props' => [
-                    'value' => 'color_code',
-                    '_disabled' => true,
+                    'value' => '{color_code}',
+                    'disabled' => true,
                 ],
             ],
         ];

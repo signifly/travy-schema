@@ -18,7 +18,7 @@ class DatePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date',
                 'props' => [
-                    'date' => 'date',
+                    'date' => '{date}',
                 ],
             ],
         ];
@@ -37,8 +37,8 @@ class DatePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date',
                 'props' => [
-                    'date' => 'date',
-                    '_clearable' => true,
+                    'date' => '{date}',
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -57,8 +57,8 @@ class DatePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date',
                 'props' => [
-                    'date' => 'date',
-                    '_disabled' => true,
+                    'date' => '{date}',
+                    'disabled' => true,
                 ],
             ],
         ];

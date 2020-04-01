@@ -11,8 +11,8 @@ class DateRangePickerTest extends TestCase
     public function it_serializes_to_json()
     {
         $field = DateRangePicker::make('Accessibility')
-            ->start('start_date')
-            ->end('end_date');
+            ->start('{start_date}')
+            ->end('{end_date}');
 
         $expected = [
             'name' => 'Accessibility',
@@ -20,8 +20,8 @@ class DateRangePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
                 ],
             ],
         ];
@@ -32,8 +32,8 @@ class DateRangePickerTest extends TestCase
     public function it_is_clearable()
     {
         $field = DateRangePicker::make('Accessibility')
-            ->start('start_date')
-            ->end('end_date')
+            ->start('{start_date}')
+            ->end('{end_date}')
             ->clearable();
 
         $expected = [
@@ -42,9 +42,9 @@ class DateRangePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
-                    '_clearable' => true,
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -55,8 +55,8 @@ class DateRangePickerTest extends TestCase
     public function it_can_be_disabled()
     {
         $field = DateRangePicker::make('Accessibility')
-            ->start('start_date')
-            ->end('end_date')
+            ->start('{start_date}')
+            ->end('{end_date}')
             ->disabled();
 
         $expected = [
@@ -65,9 +65,9 @@ class DateRangePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-date-range',
                 'props' => [
-                    'dateStart' => 'start_date',
-                    'dateEnd' => 'end_date',
-                    '_disabled' => true,
+                    'dateStart' => '{start_date}',
+                    'dateEnd' => '{end_date}',
+                    'disabled' => true,
                 ],
             ],
         ];

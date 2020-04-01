@@ -74,7 +74,7 @@ class ImagePicker extends Image
     public function url(string $key): self
     {
         return $this
-            ->withOptions(['url' => $key])
+            ->withOptions(['url' => str_replace(['{', '}'], '', $key)])
             ->setProp('url', $key);
     }
 
@@ -100,7 +100,7 @@ class ImagePicker extends Image
             $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
         }
 
-        $this->setProp('id', $this->attribute);
+        $this->setProp('value', $this->attribute);
         $this->setProp('entities', $this->options());
     }
 }

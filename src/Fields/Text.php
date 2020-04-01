@@ -39,7 +39,7 @@ class Text extends Field
      * @param  string $tooltip
      * @return self
      */
-    public function tooltip(string $tooltip): self
+    public function iconTooltip(string $tooltip): self
     {
         return $this->withProps(compact('tooltip'));
     }

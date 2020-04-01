@@ -20,7 +20,7 @@ class NumberTest extends TestCase
             'fieldType' => [
                 'id' => 'input-number',
                 'props' => [
-                    'value' => 'price',
+                    'value' => '{price}',
                 ],
             ],
         ];
@@ -41,8 +41,8 @@ class NumberTest extends TestCase
             'fieldType' => [
                 'id' => 'input-number',
                 'props' => [
-                    'value' => 'price',
-                    '_unit' => 'DKK',
+                    'value' => '{price}',
+                    'unit' => 'DKK',
                 ],
             ],
         ];
@@ -63,8 +63,8 @@ class NumberTest extends TestCase
             'fieldType' => [
                 'id' => 'input-number',
                 'props' => [
-                    'value' => 'price',
-                    '_disabled' => true,
+                    'value' => '{price}',
+                    'disabled' => true,
                 ],
             ],
         ];

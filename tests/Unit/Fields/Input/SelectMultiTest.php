@@ -19,8 +19,8 @@ class SelectMultiTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => $items,
+                    'value' => '{currencies}',
+                    'entities' => $items,
                 ],
             ],
         ];
@@ -40,9 +40,9 @@ class SelectMultiTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => $items,
-                    '_addable' => true,
+                    'value' => '{currencies}',
+                    'entities' => $items,
+                    'addable' => true,
                 ],
             ],
         ];
@@ -62,9 +62,9 @@ class SelectMultiTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => $items,
-                    '_clearable' => true,
+                    'value' => '{currencies}',
+                    'entities' => $items,
+                    'clearable' => true,
                 ],
             ],
         ];
@@ -84,9 +84,9 @@ class SelectMultiTest extends TestCase
             'fieldType' => [
                 'id' => 'input-select-multi',
                 'props' => [
-                    'value' => 'currencies',
-                    '_entities' => $items,
-                    '_disabled' => true,
+                    'value' => '{currencies}',
+                    'entities' => $items,
+                    'disabled' => true,
                 ],
             ],
         ];

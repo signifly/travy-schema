@@ -10,7 +10,7 @@ trait Clearable
     /**
      * Set the clearable prop.
      *
-     * @param  bool $value
+     * @param  bool|string $value
      * @return self
      */
     public function clearable(bool $value = true): self

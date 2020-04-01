@@ -129,12 +129,25 @@ abstract class Field implements JsonSerializable
     /**
      * Specify that this field should be disabled.
      *
-     * @param  bool  $value
+     * @param  bool|string  $value
      * @return self
      */
     public function disabled($value = true): self
     {
         return $this->setProp('disabled', $value);
+    }
+
+    /**
+     * Specify the error attribute.
+     *
+     * @param string $attribute
+     * @return $this
+     */
+    public function errorAttribute(string $attribute): self
+    {
+        $this->errorAttribute = $attribute;
+
+        return $this;
     }
 
     /**

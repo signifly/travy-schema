@@ -18,7 +18,7 @@ class EditorTest extends TestCase
             'fieldType' => [
                 'id' => 'input-editor-markdown',
                 'props' => [
-                    'content' => 'description',
+                    'content' => '{description}',
                 ],
             ],
         ];
@@ -37,8 +37,8 @@ class EditorTest extends TestCase
             'fieldType' => [
                 'id' => 'input-editor-markdown',
                 'props' => [
-                    'content' => 'description',
-                    '_disabled' => true,
+                    'content' => '{description}',
+                    'disabled' => true,
                 ],
             ],
         ];

@@ -10,7 +10,7 @@ trait Addable
     /**
      * Set the addable prop.
      *
-     * @param  bool $value
+     * @param  bool|string $value
      * @return self
      */
     public function addable($value = true): self

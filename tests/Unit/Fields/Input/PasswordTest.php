@@ -18,8 +18,8 @@ class PasswordTest extends TestCase
             'fieldType' => [
                 'id' => 'input-password',
                 'props' => [
-                    'value' => 'password',
-                    '_autocomplete' => 'new-password',
+                    'value' => '{password}',
+                    'autocomplete' => 'new-password',
                 ],
             ],
         ];

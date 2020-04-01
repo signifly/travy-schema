@@ -18,7 +18,7 @@ class TextTest extends TestCase
             'fieldType' => [
                 'id' => 'text',
                 'props' => [
-                    'text' => 'name',
+                    'text' => '{name}',
                 ],
             ],
         ];

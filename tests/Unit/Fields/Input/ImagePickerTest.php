@@ -10,9 +10,9 @@ class ImagePickerTest extends TestCase
     /** @test */
     public function it_serializes_to_json()
     {
-        $field = ImagePicker::make('Image', 'file_id')
+        $field = ImagePicker::make('Image', '{file_id}')
             ->endpoint('some_url')
-            ->url('image_url')
+            ->url('{image_url}')
             ->label('filename')
             ->size('80px', '80px');
 
@@ -22,11 +22,11 @@ class ImagePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-image-picker',
                 'props' => [
-                    'id' => 'file_id',
-                    'url' => 'image_url',
-                    '_height' => '80px',
-                    '_width' => '80px',
-                    '_entities' => [
+                    'value' => '{file_id}',
+                    'url' => '{image_url}',
+                    'height' => '80px',
+                    'width' => '80px',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],
@@ -46,7 +46,7 @@ class ImagePickerTest extends TestCase
     {
         $field = ImagePicker::make('Image', 'file_id')
             ->endpoint('some_url')
-            ->url('image_url')
+            ->url('{image_url}')
             ->entityUrl('other_url')
             ->label('filename')
             ->size('80px', '80px');
@@ -57,11 +57,11 @@ class ImagePickerTest extends TestCase
             'fieldType' => [
                 'id' => 'input-image-picker',
                 'props' => [
-                    'id' => 'file_id',
-                    'url' => 'image_url',
-                    '_height' => '80px',
-                    '_width' => '80px',
-                    '_entities' => [
+                    'value' => 'file_id',
+                    'url' => '{image_url}',
+                    'height' => '80px',
+                    'width' => '80px',
+                    'entities' => [
                         'endpoint' => [
                             'url' => 'some_url',
                         ],

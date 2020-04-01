@@ -18,7 +18,7 @@ class CheckboxTest extends TestCase
             'fieldType' => [
                 'id' => 'input-checkbox',
                 'props' => [
-                    'value' => 'accept_terms',
+                    'value' => '{accept_terms}',
                 ],
             ],
         ];
@@ -37,8 +37,8 @@ class CheckboxTest extends TestCase
             'fieldType' => [
                 'id' => 'input-checkbox',
                 'props' => [
-                    'value' => 'accept_terms',
-                    '_disabled' => true,
+                    'value' => '{accept_terms}',
+                    'disabled' => true,
                 ],
             ],
         ];
