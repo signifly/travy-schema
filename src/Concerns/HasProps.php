@@ -29,7 +29,7 @@ trait HasProps
      */
     public function forgetProp($key)
     {
-        return Arr::forget($this->props, $key);
+        Arr::forget($this->props, $key);
     }
 
     /**
@@ -114,6 +114,10 @@ trait HasProps
 
     public function guardAgainstInvalidProps(array $props)
     {
+        if (empty($this->propsValidationRules)) {
+            return;
+        }
+
         $validator = Validator::make($props, $this->propsValidationRules);
 
         if ($validator->fails()) {

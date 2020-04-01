@@ -76,7 +76,7 @@ class Text extends Field
      * @param  bool $mapped
      * @return self
      */
-    public function tooltip(string $tooltip, bool $mapped = true): self
+    public function iconTooltip(string $tooltip, bool $mapped = true): self
     {
         return $this->withProps(compact('tooltip'), $mapped);
     }

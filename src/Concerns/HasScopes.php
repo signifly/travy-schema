@@ -24,7 +24,7 @@ trait HasScopes
      */
     public function forgetScope($key)
     {
-        return Arr::forget($this->scopes, $key);
+        Arr::forget($this->scopes, $key);
     }
 
     /**
