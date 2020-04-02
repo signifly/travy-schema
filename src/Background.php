@@ -38,9 +38,7 @@ class Background implements Arrayable, Condition, JsonSerializable
      */
     public function toArray()
     {
-        return Schema::make([
-            'colors' => $this->colors,
-        ])->toArray();
+        return Schema::make($this->colors)->toArray();
     }
 
     /**

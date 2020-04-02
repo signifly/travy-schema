@@ -17,11 +17,9 @@ class BackgroundTest extends TestCase
         ]);
 
         $expected = [
-            'colors' => [
-                [
-                    'color' => 'red',
-                    'show' => ['key' => '{is_active}', 'value' => true, 'operator' => Operator::EQ],
-                ],
+            [
+                'color' => 'red',
+                'show' => ['key' => '{is_active}', 'value' => true, 'operator' => Operator::EQ],
             ],
         ];
 
