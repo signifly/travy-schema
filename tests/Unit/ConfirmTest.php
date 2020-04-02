@@ -2,15 +2,15 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
-use Signifly\Travy\Schema\Popup;
+use Signifly\Travy\Schema\Confirm;
 use Signifly\Travy\Schema\Tests\TestCase;
 
-class PopupTest extends TestCase
+class ConfirmTest extends TestCase
 {
     /** @test */
     public function it_serializes_to_json()
     {
-        $action = Popup::make('Delete', 'danger', 'trash')
+        $action = Confirm::make('Delete', 'danger', 'trash')
             ->endpoint('some_url', 'delete');
 
         $expected = [

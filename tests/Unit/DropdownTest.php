@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Signifly\Travy\Schema\Dropdown;
-use Signifly\Travy\Schema\Popup;
+use Signifly\Travy\Schema\Confirm;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class DropdownTest extends TestCase
@@ -13,7 +13,7 @@ class DropdownTest extends TestCase
     {
         $action = Dropdown::make('More')
             ->actions([
-                $popup = Popup::make('Delete')
+                $popup = Confirm::make('Delete')
                     ->endpoint('some_url', 'delete'),
             ]);
 
@@ -55,7 +55,7 @@ class DropdownTest extends TestCase
         $action = Dropdown::make('More')
             ->size('mini')
             ->actions([
-                $popup = Popup::make('Delete')
+                $popup = Confirm::make('Delete')
                     ->endpoint('some_url', 'delete'),
             ]);
 

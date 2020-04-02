@@ -4,7 +4,7 @@ namespace Signifly\Travy\Schema;
 
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 
-class Popup extends Action
+class Confirm extends Action
 {
     use HasEndpoint;
 

@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Signifly\Travy\Schema\Batch;
-use Signifly\Travy\Schema\Popup;
+use Signifly\Travy\Schema\Confirm;
 use Signifly\Travy\Schema\Tests\TestCase;
 
 class BatchTest extends TestCase
@@ -30,7 +30,7 @@ class BatchTest extends TestCase
     {
         $batch = Batch::make('name', '/t/products/{id}')
             ->action(
-                Popup::make('Delete selected items')
+                Confirm::make('Delete selected items')
                     ->endpoint(url('v1/admin/products/{id}'))
             );
 
