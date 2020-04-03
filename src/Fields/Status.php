@@ -20,12 +20,12 @@ class Status extends Field
     /**
      * Set the status prop (alias for status).
      *
-     * @param  string $key
+     * @param  string $color
      * @return self
      */
-    public function color(string $key): self
+    public function color(string $color, bool $mapped = false): self
     {
-        return $this->status($key);
+        return $this->setProp('color', $color, $mapped);
     }
 
     /**
@@ -34,9 +34,19 @@ class Status extends Field
      * @param  string $key
      * @return self
      */
-    public function status(string $key): self
+    public function status(string $key, bool $mapped = true): self
     {
-        return $this->withProps(['status' => $key]);
+        return $this->setProp('status', $key, $mapped);
+    }
+
+    /**
+     * @param string $text
+     * @param bool $mapped
+     * @return $this
+     */
+    public function text(string $text, bool $mapped = true): self
+    {
+        return $this->setProp('text', $text, $mapped);
     }
 
     /**
@@ -46,6 +56,8 @@ class Status extends Field
      */
     public function applyOptions(): void
     {
-        $this->withProps(['text' => $this->attribute]);
+        if ($this->missingProp('text')) {
+            $this->withProps(['text' => $this->attribute]);
+        }
     }
 }
