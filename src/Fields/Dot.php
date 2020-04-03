@@ -8,25 +8,39 @@ class Dot extends Field
     public $component = 'dot';
 
     /**
+     * Set the color prop.
+     *
+     * @param string $color
+     * @param bool $mapped
+     * @return $this
+     */
+    public function color(string $color, bool $mapped = false): self
+    {
+        return $this->setProp('color', $color, $mapped);
+    }
+
+    /**
      * Set the icon prop.
      *
      * @param string $icon
+     * @param bool $mapped
      * @return $this
      */
-    public function icon(string $icon): self
+    public function icon(string $icon, bool $mapped = false): self
     {
-        return $this->setProp('icon', $icon);
+        return $this->setProp('icon', $icon, $mapped);
     }
 
     /**
      * Set the size prop.
      *
      * @param string $size
+     * @param bool $mapped
      * @return $this
      */
-    public function size(string $size): self
+    public function size(string $size, bool $mapped = false): self
     {
-        return $this->setProp('size', $size);
+        return $this->setProp('size', $size, false);
     }
 
     /**
@@ -36,6 +50,8 @@ class Dot extends Field
      */
     public function applyOptions(): void
     {
-        $this->setProp('color', $this->attribute);
+        if ($this->missingProp('color')) {
+            $this->setProp('color', $this->attribute, false);
+        }
     }
 }

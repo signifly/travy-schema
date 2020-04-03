@@ -25,11 +25,12 @@ class Dot extends Field
      * Set the size prop.
      *
      * @param string $size
+     * @param bool $mapped
      * @return $this
      */
-    public function size(string $size): self
+    public function size(string $size, bool $mapped = false): self
     {
-        return $this->setProp('size', $size);
+        return $this->setProp('size', $size, $mapped);
     }
 
     /**
