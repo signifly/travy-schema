@@ -33,6 +33,6 @@ class Context extends Field
             $this->setProp('endpoint', $this->getEndpoint(), false);
         }
 
-        $this->setProp('key', $this->attribute);
+        $this->setProp('attribute', $this->attribute);
     }
 }

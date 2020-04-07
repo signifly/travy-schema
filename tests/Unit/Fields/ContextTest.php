@@ -22,7 +22,7 @@ class ContextTest extends TestCase
             'fieldType' => [
                 'id' => 'context',
                 'props' => [
-                    'key' => '{product_id}',
+                    'attribute' => '{product_id}',
                     'endpoint' => ['url' => 'some_url'],
                     'fields' => [
                         [
