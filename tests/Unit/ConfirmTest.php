@@ -18,7 +18,7 @@ class ConfirmTest extends TestCase
             'status' => 'danger',
             'icon' => 'trash',
             'actionType' => [
-                'id' => 'popup',
+                'id' => 'confirm',
                 'props' => [
                     'title' => 'Delete',
                     'text' => $action->defaultText(),
@@ -26,7 +26,7 @@ class ConfirmTest extends TestCase
                         'url' => 'some_url',
                         'method' => 'delete',
                     ],
-                    'payload' => $this->payload ?? (object) [],
+                    'payload' => (object) [],
                 ],
             ],
         ];

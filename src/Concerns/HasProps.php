@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Signifly\Travy\Schema\Exceptions\InvalidPropsException;
 use Signifly\Travy\Schema\Support\CustomMapping;
+use Signifly\Travy\Schema\Support\PropsResolver;
 
 /**
  * @internal
@@ -112,16 +113,28 @@ trait HasProps
         return $this;
     }
 
-    public function guardAgainstInvalidProps(array $props)
+    public function guardAgainstInvalidProps()
     {
         if (empty($this->propsValidationRules)) {
             return;
         }
 
-        $validator = Validator::make($props, $this->propsValidationRules);
+        $validator = Validator::make($this->props(), $this->propsValidationRules);
 
         if ($validator->fails()) {
             throw new InvalidPropsException($validator->errors());
         }
+    }
+
+    /**
+     * Resolve the provided props.
+     *
+     * It will fallback to the props defined on the instance.
+     *
+     * @return array
+     */
+    protected function resolveProps(?array $props = null): array
+    {
+        return (new PropsResolver())->resolve($props ?? $this->props());
     }
 }

@@ -3,6 +3,7 @@
 namespace Signifly\Travy\Schema\Concerns;
 
 use Illuminate\Support\Arr;
+use Signifly\Travy\Schema\Support\ScopesApplier;
 
 /**
  * @internal
@@ -84,5 +85,16 @@ trait HasScopes
         $this->scopes = array_merge($this->scopes, $scopes);
 
         return $this;
+    }
+
+    /**
+     * Apply scopes to the provided props.
+     *
+     * @param array $props
+     * @return array
+     */
+    public function applyScopes(array $props): array
+    {
+        return (new ScopesApplier())->apply($props, $this->scopes());
     }
 }

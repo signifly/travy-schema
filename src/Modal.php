@@ -3,11 +3,14 @@
 namespace Signifly\Travy\Schema;
 
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
+use Signifly\Travy\Schema\Concerns\HasProps;
+use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\FieldCollection;
 
 class Modal extends Action
 {
     use HasEndpoint;
+    use HasProps;
 
     /**
      * The default request method.
@@ -17,37 +20,32 @@ class Modal extends Action
     protected $defaultMethod = 'post';
 
     /**
-     * The modal fields.
-     *
-     * @var array
-     */
-    protected $fields;
-
-    /**
-     * The request payload.
-     *
-     * @var array
-     */
-    protected $payload;
-
-    /**
      * The action type.
      *
      * @return array
      */
     public function actionType(): array
     {
-        $fields = FieldCollection::make($this->fields);
+        $this->withProps([
+            'name' => $this->name,
+            'endpoint' => $this->endpoint->toArray(),
+        ], false);
 
-        return [
+        return Schema::make([
             'id' => 'modal',
-            'props' => [
-                'name' => $this->name,
-                'endpoint' => $this->endpoint,
-                'fields' => $fields,
-                'payload' => $this->payload ?? ['data' => $fields->toData()],
-            ],
-        ];
+            'props' => $this->resolveProps(),
+        ])->toArray();
+    }
+
+    /**
+     * Disable submit based on comparators.
+     *
+     * @param Comparator[] $comparators
+     * @return self
+     */
+    public function disableSubmit(array $comparators): self
+    {
+        return $this->setProp('disableSubmit', $comparators, false);
     }
 
     /**
@@ -58,9 +56,12 @@ class Modal extends Action
      */
     public function fields(array $fields): self
     {
-        $this->fields = $fields;
+        $fields = FieldCollection::make($fields);
 
-        return $this;
+        return $this->withProps([
+            'fields' => $fields,
+            'payload' => ['data' => $fields->toData()],
+        ], false);
     }
 
     /**
@@ -71,8 +72,6 @@ class Modal extends Action
      */
     public function payload(array $payload): self
     {
-        $this->payload = $payload;
-
-        return $this;
+        return $this->setProp('payload', $payload, false);
     }
 }

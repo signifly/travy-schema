@@ -11,8 +11,6 @@ use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
 use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\CustomMapping;
-use Signifly\Travy\Schema\Support\PropsResolver;
-use Signifly\Travy\Schema\Support\ScopesApplier;
 use Signifly\Travy\Schema\Support\Tooltip;
 
 abstract class Field implements JsonSerializable
@@ -206,14 +204,13 @@ abstract class Field implements JsonSerializable
      */
     public function fieldType(): array
     {
-        $props = $this->props();
+        $this->guardAgainstInvalidProps();
 
-        // Guard against invalid props *before* transforming (mapped/unmapped and scoping) them...
-        $this->guardAgainstInvalidProps($props);
+        $props = $this->applyScopes($this->props());
 
         return Schema::make([
             'id' => $this->component,
-            'props' => $this->transformProps($props),
+            'props' => $this->resolveProps($props),
         ])->toArray();
     }
 
@@ -232,18 +229,5 @@ abstract class Field implements JsonSerializable
             'name' => $this->name,
             'fieldType' => $this->fieldType(),
         ], $this->meta());
-    }
-
-    /**
-     * Transform the props.
-     *
-     * @param  array  $props
-     * @return array
-     */
-    protected function transformProps(array $props): array
-    {
-        return (new PropsResolver())->resolve(
-            (new ScopesApplier())->apply($props, $this->scopes())
-        );
     }
 }

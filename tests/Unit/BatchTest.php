@@ -41,7 +41,7 @@ class BatchTest extends TestCase
                     'status' => 'primary',
                     'icon' => null,
                     'actionType' => [
-                        'id' => 'popup',
+                        'id' => 'confirm',
                         'props' => [
                             'title' => 'Delete selected items',
                             'text' => 'Are you sure? Please confirm this action.',
