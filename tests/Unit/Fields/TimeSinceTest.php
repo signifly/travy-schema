@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\TimeSince;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class TimeSinceTest extends TestCase
 {

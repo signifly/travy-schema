@@ -76,7 +76,7 @@ class SelectSearch extends Field
     public function applyOptions(): void
     {
         if ($this->hasEndpoint()) {
-            $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
+            $this->withOptions(['endpoint' => $this->endpoint]);
         }
 
         $this->setProp('value', $this->attribute);

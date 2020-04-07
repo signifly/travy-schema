@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Signifly\Travy\Schema\Confirm;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ConfirmTest extends TestCase
 {

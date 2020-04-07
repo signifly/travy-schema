@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields\Input;
 
 use Signifly\Travy\Schema\Fields\Input\Precision;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class PrecisionTest extends TestCase
 {

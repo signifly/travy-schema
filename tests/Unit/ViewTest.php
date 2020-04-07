@@ -8,7 +8,7 @@ use Signifly\Travy\Schema\Fields\Input\Text;
 use Signifly\Travy\Schema\Tab;
 use Signifly\Travy\Schema\Tests\Support\View\ModifierShopView;
 use Signifly\Travy\Schema\Tests\Support\View\ShopView;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ViewTest extends TestCase
 {

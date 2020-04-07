@@ -6,7 +6,7 @@ use Signifly\Travy\Schema\Background;
 use Signifly\Travy\Schema\Row;
 use Signifly\Travy\Schema\Support\Color;
 use Signifly\Travy\Schema\Support\Operator;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class RowTest extends TestCase
 {

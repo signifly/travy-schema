@@ -8,7 +8,7 @@ use Signifly\Travy\Schema\Fields\Input\Textarea;
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Tab;
 use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class TabTest extends TestCase
 {

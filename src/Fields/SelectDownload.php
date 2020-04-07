@@ -122,8 +122,8 @@ class SelectDownload extends Field
      */
     public function applyOptions(): void
     {
-        if ($this->endpoint) {
-            $this->withOptions(['endpoint' => $this->endpoint->toArray()]);
+        if ($this->hasEndpoint()) {
+            $this->withOptions(['endpoint' => $this->endpoint]);
         }
 
         $this->withProps([

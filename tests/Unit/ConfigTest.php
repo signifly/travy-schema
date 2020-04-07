@@ -9,7 +9,7 @@ use Signifly\Travy\Schema\Dashboard;
 use Signifly\Travy\Schema\Fields\Section;
 use Signifly\Travy\Schema\Header;
 use Signifly\Travy\Schema\MenuItem;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Theme;
 
 class ConfigTest extends TestCase

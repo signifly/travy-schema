@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Batch;
 use Signifly\Travy\Schema\Confirm;
-use Signifly\Travy\Schema\Tests\TestCase;
 
 class BatchTest extends TestCase
 {
@@ -31,7 +31,7 @@ class BatchTest extends TestCase
         $batch = Batch::make('name', '/t/products/{id}')
             ->action(
                 Confirm::make('Delete selected items')
-                    ->endpoint(url('v1/admin/products/{id}'))
+                    ->endpoint('v1/admin/products/{id}')
             );
 
         $expected = [
@@ -46,7 +46,7 @@ class BatchTest extends TestCase
                             'title' => 'Delete selected items',
                             'text' => 'Are you sure? Please confirm this action.',
                             'endpoint' => [
-                                'url' => 'http://localhost/v1/admin/products/{id}',
+                                'url' => 'v1/admin/products/{id}',
                                 'method' => 'post',
                             ],
                             'payload' => (object) [],

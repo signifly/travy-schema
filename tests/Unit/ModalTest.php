@@ -6,7 +6,7 @@ use Signifly\Travy\Schema\Fields\Input\Text;
 use Signifly\Travy\Schema\Modal;
 use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\Operator;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ModalTest extends TestCase
 {

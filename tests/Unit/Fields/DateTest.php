@@ -4,7 +4,7 @@ namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\Date;
 use Signifly\Travy\Schema\Support\CustomMapping;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class DateTest extends TestCase
 {

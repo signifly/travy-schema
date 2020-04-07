@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
-class Endpoint implements Arrayable
+class Endpoint implements Arrayable, \JsonSerializable
 {
     use Instantiable;
 
@@ -129,5 +129,13 @@ class Endpoint implements Arrayable
         }
 
         return $data;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Confirm;
 use Signifly\Travy\Schema\Dropdown;
-use Signifly\Travy\Schema\Tests\TestCase;
 
 class DropdownTest extends TestCase
 {

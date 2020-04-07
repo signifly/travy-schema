@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\Divider;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class DividerTest extends TestCase
 {

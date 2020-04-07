@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Signifly\Travy\Schema\Tests\Support\Index\ModifierShopIndex;
 use Signifly\Travy\Schema\Tests\Support\Index\ShopIndex;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class IndexTest extends TestCase
 {

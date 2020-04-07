@@ -4,7 +4,7 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Group;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class GroupTest extends TestCase
 {

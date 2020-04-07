@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Support;
 
 use Signifly\Travy\Schema\Support\ScopesApplier;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ScopesApplierTest extends TestCase
 {

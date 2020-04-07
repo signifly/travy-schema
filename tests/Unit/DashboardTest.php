@@ -5,7 +5,7 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 use Illuminate\Support\Arr;
 use Signifly\Travy\Schema\Dashboard;
 use Signifly\Travy\Schema\Fields\Section;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class DashboardTest extends TestCase
 {

@@ -3,7 +3,7 @@
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
 use Signifly\Travy\Schema\Fields\ItemListTooltip;
-use Signifly\Travy\Schema\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ItemListTooltipTest extends TestCase
 {

@@ -28,7 +28,7 @@ class Modal extends Action
     {
         $this->withProps([
             'name' => $this->name,
-            'endpoint' => $this->endpoint->toArray(),
+            'endpoint' => $this->endpoint,
         ], false);
 
         return Schema::make([
