@@ -37,7 +37,7 @@ class Confirm extends Action
     public function actionType(): array
     {
         return [
-            'id' => 'popup',
+            'id' => 'confirm',
             'props' => [
                 'title' => $this->name,
                 'text' => $this->text ?? $this->defaultText(),
