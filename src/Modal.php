@@ -74,4 +74,16 @@ class Modal extends Action
     {
         return $this->setProp('payload', $payload, false);
     }
+
+    /**
+     * Set the width prop.
+     *
+     * @param int $width
+     * @param bool $mapped
+     * @return self
+     */
+    public function width(int $width, bool $mapped = false): self
+    {
+        return $this->setProp('width', $mapped);
+    }
 }
