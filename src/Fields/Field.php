@@ -13,6 +13,7 @@ use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\CustomMapping;
 use Signifly\Travy\Schema\Support\Tooltip;
 
+/** @method static static make($name, $attribute = null) */
 abstract class Field implements JsonSerializable
 {
     use HasProps;

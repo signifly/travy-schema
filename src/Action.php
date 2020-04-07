@@ -9,6 +9,7 @@ use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Fields\Status;
 use Signifly\Travy\Schema\Support\Comparator;
 
+/** @method static static make(string $name, string $status = Status::PRIMARY, ?string $icon = null) */
 abstract class Action implements Arrayable, JsonSerializable
 {
     use HasMeta;
