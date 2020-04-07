@@ -134,7 +134,7 @@ abstract class Action implements Arrayable, JsonSerializable
             'actionType' => array_merge($this->actionType(), $this->meta()),
         ]);
 
-        if ($this->size) {
+        if (isset($this->size)) {
             $schema->set('size', $this->size);
         }
 
