@@ -5,6 +5,7 @@ namespace Signifly\Travy\Schema;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make($name, array $groups) */
 class Sidebar implements JsonSerializable
 {
     use Instantiable;

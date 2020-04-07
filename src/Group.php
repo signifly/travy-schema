@@ -6,6 +6,7 @@ use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Support\FieldCollection;
 
+/** @method static static make($name, array $fields = []) */
 class Group implements JsonSerializable
 {
     use Instantiable;

@@ -7,6 +7,7 @@ use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Contracts\Condition;
 
+/** @method static static make(array $colors) */
 class Background implements Arrayable, Condition, JsonSerializable
 {
     use Instantiable;

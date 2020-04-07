@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make(array $items = []) */
 class Sort implements Arrayable, JsonSerializable
 {
     use Instantiable;

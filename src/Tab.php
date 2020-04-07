@@ -7,8 +7,10 @@ use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\HasEndpoint;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Contracts\Table;
+use Signifly\Travy\Schema\Exceptions\InvalidDefinitionException;
 use Signifly\Travy\Schema\Support\FieldCollection;
 
+/** @method static static make($name, $definition = null) */
 class Tab implements Arrayable, JsonSerializable
 {
     use HasEndpoint;
@@ -108,9 +110,7 @@ class Tab implements Arrayable, JsonSerializable
             ];
         }
 
-        throw new InvalidDefinitionException(
-            sprintf('Invalid tab type `%s` defined', $this->type)
-        );
+        throw InvalidDefinitionException::for($this->type);
     }
 
     public function jsonSerialize()

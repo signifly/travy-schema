@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make(string $cover, string $logo, string $color) */
 class Theme implements Arrayable, JsonSerializable
 {
     use Instantiable;

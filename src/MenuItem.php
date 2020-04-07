@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make(string $name, ?string $url = null) */
 class MenuItem implements Arrayable, JsonSerializable
 {
     use Instantiable;

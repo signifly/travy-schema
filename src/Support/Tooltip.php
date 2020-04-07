@@ -7,6 +7,7 @@ use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 use Signifly\Travy\Schema\Schema;
 
+/** @method static static make(string $text) */
 class Tooltip implements Arrayable, JsonSerializable
 {
     use Instantiable;

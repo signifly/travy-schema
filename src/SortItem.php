@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make(string $label, ?string $value = null, bool $manual = false) */
 class SortItem implements Arrayable, JsonSerializable
 {
     use Instantiable;

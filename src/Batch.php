@@ -5,6 +5,7 @@ namespace Signifly\Travy\Schema;
 use JsonSerializable;
 use Signifly\Travy\Schema\Concerns\Instantiable;
 
+/** @method static static make($attribute, $link = null) */
 class Batch implements JsonSerializable
 {
     use Instantiable;
