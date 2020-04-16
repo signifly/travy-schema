@@ -15,11 +15,15 @@ class Comparator implements Arrayable, \JsonSerializable
     /** @var string */
     private $operator;
 
-    public function __construct(string $key, $value, string $operator = Operator::EQ)
+    /** @var bool */
+    private $mapped;
+
+    public function __construct(string $key, $value, string $operator = Operator::EQ, bool $mapped = true)
     {
         $this->key = $key;
         $this->value = $value;
         $this->operator = $operator;
+        $this->mapped = $mapped;
     }
 
     /**
@@ -36,7 +40,7 @@ class Comparator implements Arrayable, \JsonSerializable
     public function toArray()
     {
         return [
-            'key' => '{'.$this->key.'}', // should always be mapped
+            'key' => $this->mapped ? '{'.$this->key.'}' : $this->key,
             'operator' => $this->operator,
             'value' => $this->value,
         ];
