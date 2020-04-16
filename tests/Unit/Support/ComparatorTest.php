@@ -35,4 +35,18 @@ class ComparatorTest extends TestCase
 
         $this->assertSame($expected, $comparator->jsonSerialize());
     }
+
+    /** @test */
+    public function it_allows_custom_mapping()
+    {
+        $comparator = new Comparator('{some_key} {some_other_key}', 'true false', Operator::EQ, false);
+
+        $expected = [
+            'key' => '{some_key} {some_other_key}',
+            'operator' => Operator::EQ,
+            'value' => 'true false',
+        ];
+
+        $this->assertSame($expected, $comparator->jsonSerialize());
+    }
 }
