@@ -12,6 +12,18 @@ class ItemListTooltip extends Field
     public $component = 'item-list-tooltip';
 
     /**
+     * Set the items.external prop.
+     *
+     * @param  bool $value
+     * @param  bool $mapped
+     * @return self
+     */
+    public function external(bool $value = true, bool $mapped = false): self
+    {
+        return $this->setProp('items.external', $value, $mapped);
+    }
+
+    /**
      * Set the label prop.
      *
      * @param  string $label
