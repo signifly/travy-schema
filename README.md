@@ -1,5 +1,11 @@
 # Travy Schema
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/travy-schema.svg?style=flat-square)](https://packagist.org/packages/signifly/travy-schema)
+![Tests](https://github.com/signifly/travy-schema/workflows/Tests/badge.svg)
+[![StyleCI](https://styleci.io/repos/224155471/shield?branch=master)](https://styleci.io/repos/224155471)
+[![Quality Score](https://img.shields.io/scrutinizer/g/signifly/travy-schema.svg?style=flat-square)](https://scrutinizer-ci.com/g/signifly/travy-schema)
+[![Total Downloads](https://img.shields.io/packagist/dt/signifly/travy-schema.svg?style=flat-square)](https://packagist.org/packages/signifly/travy-schema)
+
 The `signifly/travy-schema` package allows you to configure an administration tool using code driven configuration.
 
 ## Installation
