@@ -20,6 +20,17 @@ class Text extends Field
     }
 
     /**
+     * Render text as markdown.
+     *
+     * @param bool $enabled
+     * @return self
+     */
+    public function markdown($enabled = true): self
+    {
+        return $this->setProp('markdown', $enabled, false);
+    }
+
+    /**
      * Set the textDefault prop.
      *
      * @param  mixed $text
