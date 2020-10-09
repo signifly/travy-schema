@@ -4,10 +4,10 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Concerns\WithFilters;
 use Signifly\Travy\Schema\Fields\Input\Select;
 use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
-use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase
 {

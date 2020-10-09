@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Support;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Support\AttributeResolver;
 use Signifly\Travy\Schema\Support\CustomMapping;
-use PHPUnit\Framework\TestCase;
 
 class AttributeResolverTest extends TestCase
 {

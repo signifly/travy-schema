@@ -4,9 +4,9 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Tests\Support\Index\ModifierShopIndex;
 use Signifly\Travy\Schema\Tests\Support\Index\ShopIndex;
-use PHPUnit\Framework\TestCase;
 
 class IndexTest extends TestCase
 {

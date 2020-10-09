@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Group;
-use PHPUnit\Framework\TestCase;
 
 class GroupTest extends TestCase
 {

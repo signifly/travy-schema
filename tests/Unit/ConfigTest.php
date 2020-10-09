@@ -3,13 +3,10 @@
 namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Config;
-use Signifly\Travy\Schema\Dashboard;
-use Signifly\Travy\Schema\Fields\Section;
 use Signifly\Travy\Schema\Header;
 use Signifly\Travy\Schema\MenuItem;
-use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Theme;
 
 class ConfigTest extends TestCase

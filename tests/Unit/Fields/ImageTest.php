@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Image;
 use Signifly\Travy\Schema\Support\CustomMapping;
-use PHPUnit\Framework\TestCase;
 
 class ImageTest extends TestCase
 {

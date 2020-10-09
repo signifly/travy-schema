@@ -2,11 +2,11 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Support\Comparator;
 use Signifly\Travy\Schema\Support\Operator;
 use Signifly\Travy\Schema\Support\Tooltip;
-use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase
 {
