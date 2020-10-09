@@ -28,6 +28,24 @@ class TextTest extends TestCase
     }
 
     /** @test */
+    public function it_can_render_as_markdown()
+    {
+        $field = Text::make('Name')->markdown();
+
+        $expected = [
+            'name' => 'Name',
+            'fieldType' => [
+                'id' => 'text',
+                'props' => [
+                    'markdown' => true,
+                    'text' => '{name}',
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
+
+    /** @test */
     public function it_can_be_shown_based_on_comparators()
     {
         // Multiple comparators use OR checks
