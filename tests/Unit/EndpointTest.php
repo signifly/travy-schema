@@ -2,8 +2,8 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit;
 
-use Signifly\Travy\Schema\Endpoint;
 use PHPUnit\Framework\TestCase;
+use Signifly\Travy\Schema\Endpoint;
 
 class EndpointTest extends TestCase
 {

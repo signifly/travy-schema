@@ -2,8 +2,8 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields\Input;
 
-use Signifly\Travy\Schema\Fields\Input\Textarea;
 use PHPUnit\Framework\TestCase;
+use Signifly\Travy\Schema\Fields\Input\Textarea;
 
 class TextareaTest extends TestCase
 {

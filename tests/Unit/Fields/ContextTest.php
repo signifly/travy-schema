@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Context;
 use Signifly\Travy\Schema\Fields\Text;
-use PHPUnit\Framework\TestCase;
 
 class ContextTest extends TestCase
 {

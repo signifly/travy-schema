@@ -2,8 +2,8 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields\Input;
 
-use Signifly\Travy\Schema\Fields\Input\DateRangePicker;
 use PHPUnit\Framework\TestCase;
+use Signifly\Travy\Schema\Fields\Input\DateRangePicker;
 
 class DateRangePickerTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Table;
 use Signifly\Travy\Schema\Fields\Text;
-use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase
 {

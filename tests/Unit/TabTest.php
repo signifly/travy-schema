@@ -4,11 +4,11 @@ namespace Signifly\Travy\Schema\Tests\Unit;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Input\Textarea;
 use Signifly\Travy\Schema\Fields\Text;
 use Signifly\Travy\Schema\Tab;
 use Signifly\Travy\Schema\Tests\Support\Table\TestTable;
-use PHPUnit\Framework\TestCase;
 
 class TabTest extends TestCase
 {

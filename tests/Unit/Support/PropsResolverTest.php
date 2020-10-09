@@ -2,9 +2,9 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Support;
 
-use Signifly\Travy\Schema\Support\PropsResolver;
-use Signifly\Travy\Schema\Support\CustomMapping;
 use PHPUnit\Framework\TestCase;
+use Signifly\Travy\Schema\Support\CustomMapping;
+use Signifly\Travy\Schema\Support\PropsResolver;
 
 class PropsResolverTest extends TestCase
 {

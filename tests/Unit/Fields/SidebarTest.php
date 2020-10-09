@@ -2,10 +2,10 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
+use PHPUnit\Framework\TestCase;
 use Signifly\Travy\Schema\Fields\Date;
 use Signifly\Travy\Schema\Group;
 use Signifly\Travy\Schema\Sidebar;
-use PHPUnit\Framework\TestCase;
 
 class SidebarTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Signifly\Travy\Schema\Tests\Unit\Fields;
 
-use Signifly\Travy\Schema\Fields\Progress;
 use PHPUnit\Framework\TestCase;
+use Signifly\Travy\Schema\Fields\Progress;
 
 class ProgressTest extends TestCase
 {
