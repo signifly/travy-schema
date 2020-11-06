@@ -199,6 +199,17 @@ abstract class Field implements JsonSerializable
     }
 
     /**
+     * Specify styles applied to the label in a table.
+     *
+     * @param array $style
+     * @return self
+     */
+    public function headerStyle(array $style)
+    {
+        return $this->setProp('headerStyle', $style, false);
+    }
+
+    /**
      * The field type.
      *
      * @return array
