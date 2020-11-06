@@ -112,7 +112,8 @@ class TextTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_header_style() {
+    public function it_can_set_header_style()
+    {
         $field = Text::make('Value')
             ->headerStyle([
                 'text-align' => 'right',
@@ -127,7 +128,7 @@ class TextTest extends TestCase
                     'text' => '{value}',
                     'headerStyle' => [
                         'text-align' => 'right',
-                        'color' => 'purple'
+                        'color' => 'purple',
                     ],
                 ],
             ],
