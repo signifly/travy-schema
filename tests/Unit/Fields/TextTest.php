@@ -110,4 +110,29 @@ class TextTest extends TestCase
 
         $this->assertEquals($expected, $field->jsonSerialize());
     }
+
+    /** @test */
+    public function it_can_set_header_style() {
+        $field = Text::make('Value')
+            ->headerStyle([
+                'text-align' => 'right',
+                'color' => 'purple',
+            ]);
+
+        $expected = [
+            'name' => 'Value',
+            'fieldType' => [
+                'id' => 'text',
+                'props' => [
+                    'text' => '{value}',
+                    'headerStyle' => [
+                        'text-align' => 'right',
+                        'color' => 'purple'
+                    ],
+                ],
+            ],
+        ];
+
+        $this->assertEquals($expected, $field->jsonSerialize());
+    }
 }
